@@ -5108,6 +5108,9 @@
     let workCarouselVisible = false;
     let workCarouselPaused = false;
     let workCarouselHovering = false;
+    let workCarouselWheelDelta = 0;
+    let workCarouselWheelLocked = false;
+    let workCarouselWheelResetTimer = 0;
 
     function renderWorkCarouselState() {
       workCarouselDots.forEach(function (dot, index) {
@@ -5144,6 +5147,27 @@
       workCarouselDots.forEach(function (dot, index) {
         dot.addEventListener('click', function () { goToWorkSlide(index, 'smooth'); });
       });
+      workCarousel.addEventListener('wheel', function (event) {
+        const delta = Math.abs(event.deltaY) >= Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
+        if (!delta) return;
+        const direction = delta > 0 ? 1 : -1;
+        const targetIndex = workCarouselIndex + direction;
+        if (targetIndex < 0 || targetIndex >= workCarouselSlides.length) {
+          workCarouselWheelDelta = 0;
+          return;
+        }
+        event.preventDefault();
+        if (workCarouselWheelLocked) return;
+        if (workCarouselWheelDelta && Math.sign(workCarouselWheelDelta) !== Math.sign(delta)) workCarouselWheelDelta = 0;
+        workCarouselWheelDelta += delta;
+        window.clearTimeout(workCarouselWheelResetTimer);
+        workCarouselWheelResetTimer = window.setTimeout(function () { workCarouselWheelDelta = 0; }, 180);
+        if (Math.abs(workCarouselWheelDelta) < 36) return;
+        workCarouselWheelDelta = 0;
+        workCarouselWheelLocked = true;
+        goToWorkSlide(targetIndex, 'smooth');
+        window.setTimeout(function () { workCarouselWheelLocked = false; }, 720);
+      }, { passive: false });
       workCarouselTrack.addEventListener('scroll', function () {
         window.clearTimeout(workCarouselScrollTimer);
         workCarouselScrollTimer = window.setTimeout(function () {
