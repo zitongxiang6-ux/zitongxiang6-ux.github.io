@@ -2147,11 +2147,20 @@
     .research-detail .detail-hero::after { content: "RESEARCH / CRM / EVIDENCE"; position: absolute; right: -22px; bottom: -12px; color: rgba(221,185,121,.045); font-size: clamp(52px, 8vw, 108px); font-weight: 800; letter-spacing: -.05em; white-space: nowrap; pointer-events: none; }
     .research-detail .detail-hero-inner { position: relative; z-index: 1; }
     .research-detail .detail-content { width: min(1080px, calc(100vw - 96px)); }
-    .research-verdict-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 23px; }
-    .research-verdict { min-height: 228px; display: flex; flex-direction: column; border: 1px solid var(--line-light); border-radius: 16px; padding: 22px; background: rgba(255,255,255,.38); }
+    .research-fieldwork { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 26px; align-items: center; margin-top: 18px; border-radius: 16px; padding: 24px; color: var(--white); background: #201c18; }
+    .research-fieldwork-mark { border-right: 1px solid rgba(221,185,121,.22); }
+    .research-fieldwork-mark strong { display: block; color: var(--gold-light); font-family: var(--font-display); font-size: 38px; font-style: italic; line-height: 1; }
+    .research-fieldwork-mark span { display: block; margin-top: 8px; color: rgba(255,250,241,.48); font-size: 9px; letter-spacing: .08em; }
+    .research-fieldwork h4 { color: var(--white); font-size: 15px; }
+    .research-fieldwork p { margin-top: 8px; color: rgba(255,250,241,.62); font-size: 11px; line-height: 1.8; }
+    .research-verdict-grid { display: grid; gap: 12px; margin-top: 23px; }
+    .research-verdict { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 22px; align-items: start; border: 1px solid var(--line-light); border-radius: 16px; padding: 25px; background: rgba(255,255,255,.38); }
     .research-verdict span { color: var(--gold); font-family: var(--font-display); font-size: 27px; font-style: italic; }
-    .research-verdict h4 { margin-top: 32px; font-size: 17px; }
-    .research-verdict p { margin-top: 11px; font-size: 12px; line-height: 1.75; }
+    .research-verdict h4 { font-size: 17px; }
+    .research-verdict p { margin-top: 11px; font-size: 12px; line-height: 1.85; }
+    .research-experience-conclusion { margin-top: 14px; border-left: 3px solid var(--gold); padding: 18px 22px; background: #eee6da; }
+    .research-experience-conclusion strong { display: block; font-size: 14px; }
+    .research-experience-conclusion p { margin-top: 8px; font-size: 12px; line-height: 1.8; }
     .research-map { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 24px; }
     .research-map-step { position: relative; min-height: 112px; border: 1px solid var(--line-light); border-radius: 14px; padding: 17px 14px; background: #eee7dc; }
     .research-map-step:not(:last-child)::after { content: "→"; position: absolute; z-index: 2; top: 45%; right: -9px; color: var(--gold); font-size: 13px; }
@@ -2161,10 +2170,17 @@
     .research-scope-item { border-top: 1px solid var(--line-light); padding: 14px 4px 4px; color: var(--ink-soft); font-size: 12px; line-height: 1.65; }
     .research-scope-item strong { display: block; margin-bottom: 5px; color: var(--ink); font-size: 13px; }
     .research-case-stack { display: grid; gap: 14px; margin-top: 23px; }
-    .research-case { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 25px; border: 1px solid var(--line-light); border-radius: 17px; padding: 24px; background: rgba(255,255,255,.34); }
+    .research-case { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 23px; border: 1px solid var(--line-light); border-radius: 17px; padding: 25px; background: rgba(255,255,255,.34); }
     .research-case-index { color: rgba(140,96,41,.32); font-family: var(--font-display); font-size: 50px; font-style: italic; line-height: 1; }
-    .research-case h4 { margin: 0; font-size: 18px; }
-    .research-case p { margin-top: 9px; font-size: 12px; line-height: 1.75; }
+    .research-case-kicker { color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .14em; }
+    .research-case h4 { margin: 7px 0 0; font-size: 19px; }
+    .research-case-lead { margin-top: 10px; color: var(--ink-soft); font-size: 12px; line-height: 1.8; }
+    .research-case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 19px; }
+    .research-case-block { border-top: 1px solid rgba(42,34,27,.13); padding: 14px 14px 3px 0; }
+    .research-case-block span { color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+    .research-case-block strong { display: block; margin-top: 7px; font-size: 12px; }
+    .research-case-block p { margin-top: 6px; color: var(--ink-soft); font-size: 11px; line-height: 1.75; }
+    .research-case-block.is-limit { border-radius: 12px; border-top: 0; padding: 14px; background: #eee6da; }
     .research-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 16px; }
     .research-flow span { position: relative; min-height: 64px; display: grid; place-items: center; border-radius: 11px; padding: 9px; color: #6f4b24; background: #eadbc5; font-size: 10px; font-weight: 700; text-align: center; }
     .research-flow span:not(:last-child)::after { content: "→"; position: absolute; right: -9px; color: var(--gold); }
@@ -2174,6 +2190,11 @@
     .research-shot.is-rule img { object-fit: contain; padding: 22px; }
     .research-shot figcaption { border-top: 1px solid var(--line-light); padding: 14px 16px 16px; color: var(--ink-soft); font-size: 10px; line-height: 1.65; }
     .research-shot figcaption strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: 11px; }
+    .research-compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+    .research-compare { min-height: 190px; border: 1px solid var(--line-light); border-radius: 15px; padding: 20px; background: rgba(255,255,255,.4); }
+    .research-compare span { color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+    .research-compare strong { display: block; margin-top: 22px; font-size: 15px; }
+    .research-compare p { margin-top: 9px; color: var(--ink-soft); font-size: 11px; line-height: 1.75; }
     .research-evidence-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
     .research-evidence { min-height: 150px; border-radius: 14px; padding: 19px; color: var(--white); background: #211e19; }
     .research-evidence span { color: var(--gold-light); font-size: 8px; font-weight: 800; letter-spacing: .15em; }
@@ -2544,6 +2565,7 @@
       .research-map { grid-template-columns: repeat(3, 1fr); }
       .research-map-step:nth-child(3)::after { display: none; }
       .research-shot-grid { grid-template-columns: 1fr; }
+      .research-compare-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 760px) {
@@ -2742,14 +2764,17 @@
       .research-verdict-grid,
       .research-scope-grid,
       .research-evidence-grid,
-      .research-timeline { grid-template-columns: 1fr; }
-      .research-verdict { min-height: 0; }
-      .research-verdict h4 { margin-top: 20px; }
+      .research-timeline,
+      .research-compare-grid { grid-template-columns: 1fr; }
+      .research-fieldwork { grid-template-columns: 1fr; gap: 18px; padding: 21px; }
+      .research-fieldwork-mark { border-right: 0; border-bottom: 1px solid rgba(221,185,121,.22); padding-bottom: 17px; }
+      .research-verdict { grid-template-columns: 1fr; gap: 12px; padding: 21px; }
       .research-map { grid-template-columns: 1fr 1fr; }
       .research-map-step:nth-child(3)::after { display: block; }
       .research-map-step:nth-child(even)::after { display: none; }
       .research-case { grid-template-columns: 1fr; gap: 12px; padding: 20px; }
       .research-case-index { font-size: 36px; }
+      .research-case-grid { grid-template-columns: 1fr; }
       .research-flow { grid-template-columns: 1fr; }
       .research-flow span:not(:last-child)::after { right: 50%; bottom: -13px; transform: translateX(50%) rotate(90deg); }
       .research-shot img { height: auto; min-height: 190px; }
@@ -3782,25 +3807,30 @@
             <h3>把“它有什么功能”推进到“它为什么有竞争力、适合谁、代价是什么”</h3>
             <p>研究覆盖中国企业级 CRM/SFA 行业、纷享销客定位演进、关键能力与资源、五个核心业务场景、AI Agent 横向能力和产品体验。所有重要判断尽量对应实测页面、业务流程、客户案例或公开资料，并明确区分事实、厂商自述、分析判断和待验证项。</p>
             <div class="result-grid"><div class="result"><strong>23,584</strong><span>报告正文汉字</span></div><div class="result"><strong>70 页</strong><span>完整研究报告</span></div><div class="result"><strong>48 张</strong><span>产品界面截图</span></div><div class="result"><strong>5+1</strong><span>业务场景与 AI 专题</span></div><div class="result"><strong>V0.1 → V1.6</strong><span>结构、证据与结论持续修正</span></div></div>
+            <div class="research-fieldwork">
+              <div class="research-fieldwork-mark"><strong>7 DAYS</strong><span>纷享销客 × 销售易深度使用</span></div>
+              <div><h4>连续一周进入两套产品逐项走查，不只看官网和演示材料</h4><p>围绕市场活动、线索、客户、商机、经营分析和 AI Agent，实际查看前台操作、后台配置、对象关系、规则深度与页面体验；将每个判断落实到具体页面、流程或配置项，再回到销售易的同类能力比较差异。</p></div>
+            </div>
           </div>
         </section>
 
         <section class="detail-section">
           <div class="detail-label">核心结论</div>
           <div class="detail-body">
-            <h3>先给判断，再展开证据</h3>
+            <h3>报告最终总结：能力组合、商业闭环与竞争边界</h3>
             <div class="research-verdict-grid">
-              <article class="research-verdict"><span>01</span><h4>竞争力来自能力组合</h4><p>真正形成门槛的不是某个单点模块，而是行业对象与规则、PaaS 扩展、跨组织连接和营销售服长链路被放进同一套经营平台。</p></article>
-              <article class="research-verdict"><span>02</span><h4>业务越复杂，价值越明显</h4><p>它更适合多组织、多渠道、多系统并存，且愿意投入数据治理和流程变革的中大型企业；配置、实施和学习成本也随复杂度上升。</p></article>
-              <article class="research-verdict"><span>03</span><h4>AI 差异在业务闭环</h4><p>AI 的关键不在底层模型，而在行业知识、权限和业务动作能否完成分析、人工确认、结果写回与过程追踪。</p></article>
+              <article class="research-verdict"><span>01</span><div><h4>它是一套复杂 B2B 经营平台，不是若干 CRM 模块的集合</h4><p>纷享销客不是靠单个模块取胜，而是把统一客户数据、营销到服务的长链路、PaaS 扩展和跨组织连接组合起来。行业深度取决于能否把制造、快消农牧、高科技等行业的对象、规则和指标固化为标准产品；连接能力则体现为在统一数据与权限下贯通集团、子公司、经销商、终端及 ERP。由此形成的优势是复杂业务的连续承接，代价是配置、实施和组织学习成本更高。它更适合业务复杂度足够、且愿意投入数据治理和流程变革的中大型企业。</p></div></article>
+              <article class="research-verdict"><span>02</span><div><h4>行业壁垒成立与否，要看项目经验能否变成可升级、可复制的产品资产</h4><p>标杆客户共创、自有行业团队、直营交付和客户成功负责把实践带回产品，PaaS 承接必要差异。若这条路径成立，行业积累会缩短售前与交付并降低升级负担；若能力仍依赖顾问个人和大量客开，行业越深，版本治理和交付成本反而越高。因此不能只看案例数量，还要看标准功能覆盖率、行业版本复用率、实施周期、二开比例和续费扩展。AI 是否有价值，也要看能否基于正确数据和权限完成分析、确认、写回与追踪。</p></div></article>
+              <article class="research-verdict"><span>03</span><div><h4>与销售易的差异不在“有没有”，而在资源组合和优先场景</h4><p>纷享销客与销售易都具备 PaaS、行业方案和 AI Agent。纷享销客更强调中立生态连接、跨组织深链路和本地行业流程，适合多生态并存、直销与分销并行、上下游协同复杂的企业；销售易更强在腾讯生态、AI 与云基础设施和更轻的产品体验，在企业微信私域、统一入口和快速推广上更占优。与 Salesforce 相比，纷享销客更贴近国内行业场景和本地交付，但全球伙伴生态及 Agent 的测试、发布、监控能力仍需补强。</p></div></article>
             </div>
+            <div class="research-experience-conclusion"><strong>产品体验结论</strong><p>纷享销客呈现“能力深、链路长、学习成本高”的特征：熟练使用后，客户、商机、报价、合同、订单与回款的连续处理效率更高；销售易更强调界面聚焦、工作区完整和快速上手。真正的选择题不是谁的功能更多，而是企业愿意用多大的实施与学习成本，换取多深的业务协同。</p></div>
           </div>
         </section>
 
         <section class="detail-section">
           <div class="detail-label">研究框架</div>
           <div class="detail-body">
-            <h3>从行业问题进入，最后回到采购与产品判断</h3>
+            <h3>从行业问题进入，最后回到产品机制与竞争边界</h3>
             <div class="research-map" aria-label="竞品研究路径">
               <div class="research-map-step"><span>01 / MARKET</span><strong>行业与竞争格局</strong></div>
               <div class="research-map-step"><span>02 / POSITION</span><strong>战略定位与演进</strong></div>
@@ -3821,40 +3851,90 @@
         </section>
 
         <section class="detail-section">
-          <div class="detail-label">场景切片</div>
+          <div class="detail-label">场景全景</div>
           <div class="detail-body">
-            <h3>用三段代表场景，展示从流程拆解到产品判断的过程</h3>
+            <h3>五个核心业务场景与 AI Agent，逐项拆到痛点、方案、差异化与不足</h3>
+            <p>场景分析不是罗列功能，而是判断产品有没有把业务问题转成可持续运行的机制，以及这种机制相对销售易、Salesforce 等产品的优势和代价。</p>
             <div class="research-case-stack">
-              <article class="research-case"><div class="research-case-index">01</div><div><h4>线索流转：不是“建一条线索”，而是治理资源去向</h4><p>线索池统一承接多渠道线索，通过负责人保留、指定或循环分配、领取上限、跟进 SLA、超时提醒与自动回收，把线索从进入 CRM 到退出线索池变成可追踪闭环。</p><div class="research-flow"><span>线索接入与查重</span><span>分池与分配</span><span>跟进与时效</span><span>超时回收</span><span>转客户 / 商机</span></div></div></article>
-              <article class="research-case"><div class="research-case-index">02</div><div><h4>商机推进：把优秀销售方法沉淀为阶段任务</h4><p>商机阶段、赢率、必做任务和退出条件共同构成可执行销售方法；报价、技术方案、特价、合同和订单回到同一上下文，减少跨系统查找与交接遗漏。</p><div class="research-flow"><span>商机报备 10%</span><span>需求确认 30%</span><span>方案设计 60%</span><span>投标报价 80%</span><span>签约 / 输单</span></div></div></article>
-              <article class="research-case"><div class="research-case-index">03</div><div><h4>AI Agent：从生成内容走向辅助判断与执行</h4><p>客户和商机智能体只有在能够读取正确数据、解释判断依据、接受人工确认，并把结果写回客户、商机或任务时，才真正进入业务流程；否则仍只是孤立的问答功能。</p><div class="research-flow"><span>读取业务上下文</span><span>诊断与评分</span><span>生成行动建议</span><span>人工确认</span><span>写回与追踪</span></div></div></article>
+              <article class="research-case">
+                <div class="research-case-index">01</div>
+                <div><div class="research-case-kicker">MARKETING</div><h4>市场活动与营销获客</h4><p class="research-case-lead">研究重点不是活动能否创建，而是能否把渠道获客、活动执行、线索沉淀和投入产出复盘放进同一条链路。</p><div class="research-case-grid">
+                  <div class="research-case-block"><span>痛点</span><strong>渠道复杂、转化链路断裂、投入产出不清</strong><p>线上投流、微信企微、直播、官网和线下展会数据分散；活动执行、留资和成交结果无法贯通，企业持续投入却不知道预算应投向哪里。</p></div>
+                  <div class="research-case-block"><span>方案</span><strong>渠道获客—活动转化—ROI 复盘闭环</strong><p>用市场活动档案统一记录目标、费用、成员与执行过程，线索保留来源并向下关联商机、赢单和合同额；AI 可完成活动维护、成员批量处理、线索生成、营销内容和智能找客。</p></div>
+                  <div class="research-case-block"><span>差异化</span><strong>活动投入能够连续追踪到商机与成交</strong><p>预算、费用、物料、活动执行、线索、商机及赢单结果处于同一业务链路，管理者可以比较不同活动的线索数、商机金额、赢单金额和 ROI；报告判断其连续追踪深度强于销售易标准能力。</p></div>
+                  <div class="research-case-block is-limit"><span>不足</span><strong>腾讯生态与海外营销能力并不占优</strong><p>销售易在企微私域、微信触点和腾讯云协同上入口更强；纷享销客面向海外获客时，多语言落地页、海外社交渠道、跨区域合规和营销归因仍可能依赖额外工具与集成。</p></div>
+                </div></div>
+              </article>
+              <article class="research-case">
+                <div class="research-case-index">02</div>
+                <div><div class="research-case-kicker">LEAD MANAGEMENT</div><h4>线索流转、培育与转化</h4><p class="research-case-lead">线索管理的本质不是“建一条线索”，而是让有限销售资源在进入、分配、跟进、回收和转化之间持续流动。</p><div class="research-case-grid">
+                  <div class="research-case-block"><span>痛点</span><strong>线索分散、价值难识别、停滞难处置、重复易争议</strong><p>线索散落在表格、群聊和个人记录中，交接容易断层；销售依赖经验判断优先级，管理者看不到响应过程，同一主体多次进入还会导致重复联系和归属冲突。</p></div>
+                  <div class="research-case-block"><span>方案</span><strong>集中归集—价值识别—及时跟进—重复治理—资格转化</strong><p>线索池按来源、区域和行业分池，支持指定或循环分配、领取上限、评分分层、SLA 提醒、自动回收、多对象查重，并允许按交易关系选择转客户或直接转商机。</p></div>
+                  <div class="research-case-block"><span>差异化</span><strong>规则深度高，且转化路径更灵活</strong><p>从进入到回收的规则均可配置，能适配直营、渠道和多区域团队；相较销售易更偏“线索—客户—商机”的标准路径，纷享销客可兼容先确认合作主体或先验证项目机会两种模式。</p></div>
+                  <div class="research-case-block is-limit"><span>不足</span><strong>查重很强，但重复提示不够主动</strong><p>多对象、AND/OR、精确和模糊查重的配置深度较好，但新增和列表环节的重复标识、即时提醒偏弱，用户往往需要主动进入查重流程；销售易的前置提示更容易降低重复跟进。</p></div>
+                </div></div>
+              </article>
+              <article class="research-case">
+                <div class="research-case-index">03</div>
+                <div><div class="research-case-kicker">CUSTOMER OPERATION</div><h4>客户经营与管控</h4><p class="research-case-lead">从“客户属于某个销售”转向“客户是企业可持续经营的资产”，关键在统一主档、动态流转和差异化经营。</p><div class="research-case-grid">
+                  <div class="research-case-block"><span>痛点</span><strong>客户资产依附个人、重复建档、存量沉睡、服务难分层</strong><p>联系人、决策关系和历史往来随人员流动而丢失；简称、曾用名和关联主体造成重复记录；存量客户缺少持续经营，高价值与高风险客户也难以获得匹配的资源投入。</p></div>
+                  <div class="research-case-block"><span>方案</span><strong>统一客户主档 + 查重认证 + 公海流转 + 评分分层</strong><p>客户详情归集负责人、团队、联系人、地址、开票和销售记录；国内工商与海外邓白氏辅助主体核验，保有量与公海机制推动客户重新流动，评分结果再映射服务频次和经营策略。</p></div>
+                  <div class="research-case-block"><span>差异化</span><strong>动态客户池、多层级关系与境内外主体核验</strong><p>查重、公海、保有量和评分共同控制客户进入、持有、释放与优先级；集团、子公司及关联企业可形成多层级关系，跨境业务还能在建档前验证主体身份。</p></div>
+                  <div class="research-case-block is-limit"><span>能力边界</span><strong>公海与评分效果依赖实施配置和数据治理</strong><p>报告记录客户公海并非直接开箱即用，需要实施人员配置；客户分级、回收和健康度也依赖完整字段、统一口径和持续维护，规则越深，对管理员和组织执行的一致性要求越高。</p></div>
+                </div></div>
+              </article>
+              <article class="research-case">
+                <div class="research-case-index">04</div>
+                <div><div class="research-case-kicker">OPPORTUNITY</div><h4>商机推进与赢单</h4><p class="research-case-lead">把依赖个人经验的项目跟进方式，转成可检查的阶段、任务和退出条件，并让报价、方案、审批和订单围绕同一商机协同。</p><div class="research-case-grid">
+                  <div class="research-case-block"><span>痛点</span><strong>阶段不真实、卡点不可见、资料分散、协同缺乏上下文</strong><p>销售通过会议、微信和个人表格推进项目，管理者难以掌握停滞时长与下一步动作；需求、预算、决策链、竞对、方案和报价散落各处，预测与资源介入失去依据。</p></div>
+                  <div class="research-case-block"><span>方案</span><strong>可配置阶段任务 + 统一商机详情 + 销售漏斗</strong><p>企业可配置阶段名称、顺序、赢率、必做任务和退出条件；商机详情归集方案、报价、特价、合同和订单，AI 进一步完成商机评分、风险诊断、赢率判断与推进策略。</p></div>
+                  <div class="research-case-block"><span>差异化</span><strong>深链路协同与销售方法产品化</strong><p>报价、技术方案、审批、合同和订单能够从商机发起并回到同一记录；资深销售的方法可沉淀为阶段任务，让新人知道每一步要做什么，也让管理者按统一标准检查推进质量。</p></div>
+                  <div class="research-case-block is-limit"><span>能力边界</span><strong>方法固化有明显前置成本，漏斗质量仍取决于真实维护</strong><p>阶段、赢率、任务和退出条件需要企业先统一销售方法并持续治理；如果销售不及时更新、阶段定义失真，漏斗和预测仍会失效。后台配置越细，对管理员经验和一线执行越依赖。</p></div>
+                </div></div>
+              </article>
+              <article class="research-case">
+                <div class="research-case-index">05</div>
+                <div><div class="research-case-kicker">ANALYTICS</div><h4>数据分析与经营洞察</h4><p class="research-case-lead">核心不是多做一张看板，而是让经营问题、指标口径、CRM 对象与后续动作保持连接。</p><div class="research-case-grid">
+                  <div class="research-case-block"><span>痛点</span><strong>本地 Excel 分散、更新滞后、分析维度与口径不一致</strong><p>不同管理者各自维护报表，每次分析主题又不同，导致数据不全、维度缺失和口径漂移，难以支撑持续变化的经营问题。</p></div>
+                  <div class="research-case-block"><span>方案</span><strong>主题报表 + 自定义 BI + 数据驾驶舱 + AI 动态看板</strong><p>线索、订单、产品、商机、客户和业绩报表统一维护；企业可配置筛选、汇总、计算列与驾驶舱，AI 通过自然语言澄清指标和范围，生成可发布的 HTML 分析页面。</p></div>
+                  <div class="research-case-block"><span>差异化</span><strong>分析结论可直接穿透到 CRM 业务对象</strong><p>异常指标能够下钻到客户、商机阶段和负责人并继续安排动作；行业报表模板降低从零建模成本，分享后仍按接收者权限过滤，比外接 BI 更容易形成“发现问题—定位对象—推进处理”的闭环。</p></div>
+                  <div class="research-case-block is-limit"><span>不足</span><strong>灵活性越高，对指标定义与维护能力要求越高</strong><p>字段、筛选、计算列、图表和驾驶舱布局都要求使用者理解数据模型，复杂报表仍可能依赖实施协助。AI 能加快生成，但不能替代指标口径、数据质量和权限治理。</p></div>
+                </div></div>
+              </article>
+              <article class="research-case">
+                <div class="research-case-index">06</div>
+                <div><div class="research-case-kicker">AI AGENT</div><h4>AI Agent 与业务场景落地</h4><p class="research-case-lead">AI 只有读取正确业务上下文、解释判断依据、接受人工确认，并将结果写回业务对象或任务，才从问答工具变成 CRM 的执行层。</p><div class="research-case-grid">
+                  <div class="research-case-block"><span>痛点</span><strong>独立 AI 与 CRM 割裂，缺上下文、缺写回、缺权限治理</strong><p>用户需要重复提供客户、时间和目标，生成结果无法回到客户、商机、日程或任务；对象与字段权限、写操作、失败重试和审计也难以统一控制。</p></div>
+                  <div class="research-case-block"><span>方案</span><strong>工作台—智能体—Skill—人工确认—写回—日志</strong><p>Agent 获取 CRM 对象、沟通、知识与外部信息，调用 Skill 与 Action 形成结果；新增、修改、批量处理和自动执行先确认字段与目标对象，再写回记录、任务、报告或看板并保留日志。</p></div>
+                  <div class="research-case-block"><span>差异化</span><strong>业务方法可组合复用，行业 Agent 更贴近现场</strong><p>Agent、Skill 与 Action 分开管理并支持版本复用；消费品访销、图像识别、智能下单、合同风控和现场服务等行业任务预置更深，且可通过 MCP 把 CRM 能力开放给 Claude、Codex 等通用 AI 入口。</p></div>
+                  <div class="research-case-block is-limit"><span>不足</span><strong>与销售易技术能力高度重合，岗位化与规模运维仍弱</strong><p>NeoAgent 同样具备 Builder、RAG、Multi-Agent、Action、权限与审计；纷享销客当前更多帮助员工完成单点任务，尚未充分形成持续承担岗位职责的数字员工，大规模测试、发布、监控和伙伴生态也弱于 Salesforce。</p></div>
+                </div></div>
+              </article>
             </div>
           </div>
         </section>
 
         <section class="detail-section">
-          <div class="detail-label">界面证据</div>
+          <div class="detail-label">机制实测</div>
           <div class="detail-body">
-            <h3>展示规则与机制，不暴露客户和个人数据</h3>
-            <p>公开版只保留与产品判断直接相关、且不包含客户名称、账号、人员或租户信息的界面。完整报告中的其他截图仅用于研究取证，不进入公开网站。</p>
+            <h3>两处配置界面，对应两条关键产品判断</h3>
+            <p>商机阶段配置说明纷享销客能够把销售方法固化为阶段、赢率和任务；线索自动收回说明它不只记录线索，而是通过时效、提醒和回收规则治理资源去向。两者共同体现了它“配置深、链路长”的产品取向，也解释了为什么能力上限更高、后台学习和实施成本也更高。</p>
             <div class="research-shot-grid">
-              <figure class="research-shot"><img src="/assets/fxiaoke-opportunity-stage-config.png" alt="纷享销客商机阶段与赢率配置界面" loading="lazy"><figcaption><strong>商机阶段与赢率配置</strong>阶段名称、顺序、赢率与阶段类型共同构成销售过程治理的基础。</figcaption></figure>
-              <figure class="research-shot is-rule"><img src="/assets/fxiaoke-lead-reclaim-rule.png" alt="纷享销客线索池自动收回规则配置界面" loading="lazy"><figcaption><strong>线索自动收回规则</strong>把未跟进、未转化和提醒机制变成可配置运营规则。</figcaption></figure>
+              <figure class="research-shot"><img src="/assets/fxiaoke-opportunity-stage-config.png" alt="纷享销客商机阶段与赢率配置界面" loading="lazy"><figcaption><strong>商机阶段与赢率配置</strong>阶段名称、顺序、赢率和类型均可调整，证明企业可以把自身销售方法沉淀为产品规则；但阶段设计和真实维护质量，也直接决定漏斗与预测是否可信。</figcaption></figure>
+              <figure class="research-shot is-rule"><img src="/assets/fxiaoke-lead-reclaim-rule.png" alt="纷享销客线索池自动收回规则配置界面" loading="lazy"><figcaption><strong>线索自动收回规则</strong>未跟进时限、提前提醒、目标线索池和回收后动作可以配置，形成从分配、响应到回收再运营的资源循环。</figcaption></figure>
             </div>
           </div>
         </section>
 
         <section class="detail-section">
-          <div class="detail-label">证据边界</div>
+          <div class="detail-label">双产品体验</div>
           <div class="detail-body">
-            <h3>结论可信，比结论看起来完整更重要</h3>
-            <div class="research-evidence-grid">
-              <div class="research-evidence"><span>TESTED</span><strong>产品实测</strong><p>实际页面、操作路径和任务结果，作为产品机制的直接证据。</p></div>
-              <div class="research-evidence"><span>PUBLIC</span><strong>公开资料</strong><p>官网、帮助中心、发布会、行业报告和客户案例，保留来源与日期。</p></div>
-              <div class="research-evidence"><span>INFERENCE</span><strong>分析判断</strong><p>基于多项事实形成的推断，明确说明比较对象、场景与适用范围。</p></div>
-              <div class="research-evidence"><span>TO VERIFY</span><strong>待进一步验证</strong><p>缺少实测、统一口径或长期结果的数据，不提前写成确定事实。</p></div>
+            <h3>一周深度使用后，最明显的差异不是功能多少，而是复杂度放在哪里</h3>
+            <div class="research-compare-grid">
+              <div class="research-compare"><span>纷享销客</span><strong>能力深、链路长</strong><p>同一平台容纳更多业务对象、视图、配置项和跨单据联动；熟练使用后，客户—商机—报价—合同—订单—回款的连续处理更顺，但导航层级、后台配置和信息密度更高。</p></div>
+              <div class="research-compare"><span>销售易</span><strong>界面聚焦、上手更快</strong><p>顶部导航和全屏工作区让单项任务更聚焦，视觉体系更统一；腾讯云、企业微信和相关企业服务生态在私域、统一入口与推广效率上更有优势。</p></div>
+              <div class="research-compare"><span>比较结论</span><strong>深协同与轻操作的取舍</strong><p>多组织、多渠道和异构系统越复杂，纷享销客的深链路价值越明显；生态越集中、越强调轻量上线和快速推广，销售易的相对优势越强。不能脱离企业复杂度做统一排名。</p></div>
             </div>
-            <div class="detail-note"><strong>研究声明：</strong>本页面为个人独立研究展示，与纷享销客官方无隶属或背书关系。产品名称和商标归其权利人所有，界面仅用于有限的产品分析说明。</div>
           </div>
         </section>
 
@@ -3875,7 +3955,7 @@
           <div class="detail-label">公开摘要</div>
           <div class="detail-body">
             <div class="research-download">
-              <div><h3>阅读 10 页公开摘要版</h3><p>保留研究框架、三个核心结论、代表场景与证据方法；客户、人员、租户和内部项目背景均已移除。</p><div class="research-disclaimer">完整研究报告用于面试沟通时展示，不提供未经脱敏的原始文档公开下载。</div></div>
+              <div><h3>阅读扩展版公开摘要</h3><p>包含最终总结、双产品深度使用说明、五个完整业务场景、AI Agent 专题、产品体验对比与关键机制实测。</p><div class="research-disclaimer">本材料为个人独立研究展示，与相关厂商无隶属或背书关系；完整原始报告用于面试沟通时展示。</div></div>
               <div class="research-download-actions"><a class="button primary" href="/downloads/fxiaoke-crm-research-public-summary.pdf" target="_blank" rel="noopener">打开 PDF <span class="arrow">↗</span></a><a class="button dark" href="/downloads/fxiaoke-crm-research-public-summary.pdf" download>下载摘要 <span class="arrow">↓</span></a></div>
             </div>
           </div>
