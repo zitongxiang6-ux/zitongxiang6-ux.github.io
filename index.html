@@ -2178,6 +2178,31 @@
     .research-experience-conclusion strong { display: block; font-size: 14px; }
     .research-experience-conclusion p { margin-top: 8px; font-size: 12px; line-height: 1.8; }
     .research-experience-conclusion mark { padding: 2px 6px; color: #fffaf1; background: #8c6029; font-weight: 800; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .research-strategy-intro { max-width: 790px; }
+    .research-strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
+    .research-strategy-card { border: 1px solid rgba(140,96,41,.18); border-radius: 15px; padding: 21px; background: rgba(255,255,255,.44); }
+    .research-strategy-card > span { color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+    .research-strategy-card h4 { margin-top: 12px; font-size: 15px; }
+    .research-strategy-card p { margin-top: 9px; font-size: 11px; line-height: 1.78; }
+    .research-inline-key { color: #744d20; font-weight: 800; background: linear-gradient(transparent 60%, rgba(221,185,121,.4) 60%); }
+    .research-strategy-verdict { margin-top: 14px; border-radius: 14px; padding: 20px 22px; color: var(--white); background: #211d18; }
+    .research-strategy-verdict > span { color: var(--gold-light); font-size: 8px; font-weight: 800; letter-spacing: .14em; }
+    .research-strategy-verdict p { margin-top: 9px; color: rgba(255,250,241,.68); font-size: 12px; line-height: 1.8; }
+    .research-strategy-verdict mark { padding: 2px 6px; border-radius: 4px; color: #221a12; background: var(--gold-light); font-weight: 800; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .research-position-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
+    .research-position-panel { border: 1px solid rgba(140,96,41,.18); border-radius: 16px; padding: 22px; background: #f4efe7; }
+    .research-position-panel.is-challenge { background: #e9e2d8; }
+    .research-position-panel > span { display: inline-flex; border-radius: 999px; padding: 5px 9px; color: #fffaf1; background: #8c6029; font-size: 8px; font-weight: 800; letter-spacing: .12em; }
+    .research-position-panel.is-challenge > span { color: #513a20; background: #ddc49e; }
+    .research-position-panel h4 { margin-top: 13px; font-size: 17px; }
+    .research-position-list { display: grid; gap: 14px; margin-top: 18px; }
+    .research-position-item { border-top: 1px solid rgba(42,34,27,.12); padding-top: 14px; }
+    .research-position-item strong { display: block; color: #744d20; font-size: 12px; line-height: 1.55; }
+    .research-position-panel.is-challenge .research-position-item strong { color: #513a20; }
+    .research-position-item p { margin-top: 6px; font-size: 10.5px; line-height: 1.75; }
+    .research-position-conclusion { margin-top: 14px; border-left: 3px solid var(--gold); padding: 17px 20px; background: #eee6da; }
+    .research-position-conclusion strong { color: #744d20; font-size: 13px; }
+    .research-position-conclusion p { margin-top: 7px; font-size: 11.5px; line-height: 1.8; }
     .research-map { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 24px; }
     .research-map-step { position: relative; min-height: 112px; border: 1px solid var(--line-light); border-radius: 14px; padding: 17px 14px; background: #eee7dc; }
     .research-map-step:not(:last-child)::after { content: "→"; position: absolute; z-index: 2; top: 45%; right: -9px; color: var(--gold); font-size: 13px; }
@@ -2223,13 +2248,14 @@
     .research-timeline-item span { color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
     .research-timeline-item strong { display: block; margin-top: 9px; font-size: 13px; }
     .research-timeline-item p { margin-top: 7px; font-size: 10px; line-height: 1.65; }
-    .research-report-contact { position: relative; overflow: hidden; border: 1px solid rgba(221,185,121,.28); border-radius: 20px; padding: 38px; color: var(--white); background: radial-gradient(circle at 88% 18%, rgba(200,146,77,.2), transparent 34%), #191612; }
-    .research-report-contact::after { content: "23,584 字 / 70 页"; position: absolute; right: 24px; bottom: -8px; color: rgba(221,185,121,.06); font-size: clamp(34px, 6vw, 66px); font-weight: 800; letter-spacing: -.05em; white-space: nowrap; pointer-events: none; }
-    .research-report-contact > * { position: relative; z-index: 1; }
-    .research-report-contact small { color: var(--gold-light); font-size: 9px; font-weight: 800; letter-spacing: .14em; }
-    .research-report-contact h3 { max-width: 640px; margin-top: 12px; color: var(--white); font-size: clamp(28px, 4vw, 40px); line-height: 1.25; letter-spacing: -.035em; }
-    .research-report-contact p { max-width: 640px; margin-top: 13px; color: rgba(255,250,241,.66); font-size: 13px; line-height: 1.8; }
-    .research-report-contact button { margin-top: 22px; }
+    .research-report-contact { border: 1px solid rgba(140,96,41,.2); border-left: 3px solid var(--gold); border-radius: 15px; padding: 27px 29px; background: #eee6da; }
+    .research-report-contact h3 { color: var(--ink); font-size: 22px; line-height: 1.4; }
+    .research-report-contact p { max-width: 720px; margin-top: 10px; color: var(--ink-soft); font-size: 12.5px; line-height: 1.8; }
+    .research-report-contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 17px; }
+    .research-report-contact-row span { color: var(--ink-soft); font-size: 11px; }
+    .research-report-contact-row strong { color: #744d20; }
+    .research-report-contact button { min-height: 36px; border: 1px solid rgba(140,96,41,.38); border-radius: 999px; padding: 0 15px; color: #744d20; background: transparent; font: inherit; font-size: 10px; font-weight: 800; cursor: pointer; }
+    .research-report-contact button:hover { color: #fffaf1; background: #8c6029; }
     .skill-detail .detail-hero { position: relative; overflow: hidden; background: #14120f; }
     .skill-detail .detail-hero::after {
       content: "WORK / SYSTEM / DELIVERY";
@@ -2788,6 +2814,8 @@
       .research-detail .detail-hero-inner { padding: 44px 0 40px; }
       .research-detail .detail-section { scroll-margin-top: 68px; }
       .research-verdict-grid,
+      .research-strategy-grid,
+      .research-position-grid,
       .research-scope-grid,
       .research-evidence-grid,
       .research-timeline,
@@ -2807,7 +2835,7 @@
       .research-timeline-item { min-height: 120px; padding-left: 18px; border-top: 0; border-left: 1px solid rgba(140,96,41,.28); }
       .research-timeline-item::before { top: 0; left: -5px; }
       .research-report-contact { padding: 27px 23px; }
-      .research-report-contact::after { right: 16px; font-size: 34px; }
+      .research-report-contact-row { align-items: flex-start; flex-direction: column; }
       .skill-detail .detail-content { width: calc(100vw - 32px); }
       .skill-use-list,
       .skill-io-grid,
@@ -3461,6 +3489,7 @@
         <nav class="research-topnav" aria-label="竞品研究章节目录">
           <button type="button" data-research-anchor="research-overview">研究概览</button>
           <button type="button" data-research-anchor="research-verdict">核心结论</button>
+          <button type="button" data-research-anchor="research-strategy">战略定位</button>
           <button type="button" data-research-anchor="research-framework">研究框架</button>
           <button type="button" data-research-anchor="research-scenarios">场景分析</button>
           <button type="button" data-research-anchor="research-evidence">机制实测</button>
@@ -3860,6 +3889,43 @@
           </div>
         </section>
 
+        <section class="detail-section" id="research-strategy">
+          <div class="detail-label">战略定位</div>
+          <div class="detail-body">
+            <h3>核心竞争策略与战略定位</h3>
+            <p class="research-strategy-intro">公开资料显示，纷享销客以“连接型 CRM”为入口，以行业化形成业务深度，以 PaaS 承载差异，再把 AI 收口到具体行业任务。与销售易相比，这四个方向大多已经趋同，差异主要来自组合方式和落地深度。</p>
+            <div class="research-strategy-grid">
+              <article class="research-strategy-card"><span>01 / CONNECTION</span><h4>连接型 CRM 与“1+N”</h4><p>从企业内部协作延伸到集团多组织、经销商、代理商、终端客户及异构系统，把沟通连接变成结构化数据、流程与权限协同。<strong class="research-inline-key">更有利的场景是多种办公与业务生态并存、上下游协作链条长。</strong></p></article>
+              <article class="research-strategy-card"><span>02 / INDUSTRY</span><h4>行业化与行业 PaaS</h4><p>围绕制造、高科技、消费品与农牧等行业，把客户对象、渠道规则、业务流程和指标沉淀为产品。<strong class="research-inline-key">差异要看行业模板能否与访销、订货、费用、渠道和现场服务连成一体。</strong></p></article>
+              <article class="research-strategy-card"><span>03 / PLATFORM</span><h4>平台化交付与开放互联</h4><p>用对象、流程、权限、BI、开放接口和低代码吸收客户差异，尽量以一个可升级的标准平台替代一次性定制，并让 CRM 与 ERP、SCM、OA 等系统互联。</p></article>
+              <article class="research-strategy-card"><span>04 / AI</span><h4>AI+CRM+行业智慧</h4><p>用行业知识库、业务规则和客户数据约束智能体，把 AI 嵌入巡店、排线、费用风控、销售预测和服务等任务。<strong class="research-inline-key">现阶段更适合定义为“潜在优势”。</strong></p></article>
+            </div>
+            <div class="research-strategy-verdict"><span>综合判断</span><p>相对销售易，纷享销客最可辩护的策略是 <mark>“中立连接 + 重点行业深度 + PaaS 产品化”</mark>。这套组合对多组织、多渠道、异构系统并存的复杂 B2B 企业更有价值，但不是面向所有客户的绝对优势。</p></div>
+            <div class="research-position-grid">
+              <div class="research-position-panel">
+                <span>优势判断</span>
+                <h4>优势集中在复杂 B2B 协同</h4>
+                <div class="research-position-list">
+                  <article class="research-position-item"><strong>跨生态、跨组织连接更符合复杂 B2B</strong><p>同时覆盖企业内部、集团多组织、上下游伙伴和多类业务系统。对于希望避免单一生态绑定、同时管理多渠道与多系统的企业，中立性和跨租户业务协同更容易形成优势。</p></article>
+                  <article class="research-position-item"><strong>跨组织、跨渠道的复杂业务闭环更完整</strong><p>订货、访销、代理商管理、售后服务和集团“1+N”共用客户、数据和流程体系，适合直销与分销并存、经销层级较多的企业。</p></article>
+                  <article class="research-position-item"><strong>行业知识与 AI 的衔接更连贯</strong><p>从连接型 CRM、行业 PaaS 到 ShareAI 和 Agentic CRM，技术主线持续围绕业务数据、流程和行业知识展开。</p></article>
+                </div>
+              </div>
+              <div class="research-position-panel is-challenge">
+                <span>主要挑战</span>
+                <h4>优势需要客户结果证明</h4>
+                <div class="research-position-list">
+                  <article class="research-position-item"><strong>战略趋同，差异容易停留在口号</strong><p>双方的战略关键词高度重合，需要用标准功能覆盖率、实施周期、二开比例、续费扩展和客户结果证明差异。</p></article>
+                  <article class="research-position-item"><strong>腾讯生态与 AI 基础设施形成反向压力</strong><p>客户以腾讯生态为标准入口，或优先考虑私域运营、云资源与 AI 成本时，销售易的生态资源与集成效率可能更有优势。</p></article>
+                  <article class="research-position-item"><strong>行业纵深与规模化交付存在张力</strong><p>自建行业团队和多条行业产品线会增加研发、实施和版本治理成本；若经验依赖项目客开或顾问个人，优势会转成交付与升级负担。</p></article>
+                  <article class="research-position-item"><strong>AI 与国际化的外部证据仍不足</strong><p>公开材料仍以厂商案例和产品说明为主，缺少统一口径的长期对比数据。</p></article>
+                </div>
+              </div>
+            </div>
+            <div class="research-position-conclusion"><strong>战略优势有条件</strong><p>企业的核心复杂度来自多组织、多渠道、异构系统和重点行业流程时，“连接 + 行业 + PaaS”组合更值得优先验证；腾讯生态、企微私域、云与 AI 基础设施或全球化能力是第一优先级时，销售易可能更具优势。</p></div>
+          </div>
+        </section>
+
         <section class="detail-section" id="research-framework">
           <div class="detail-label">研究框架</div>
           <div class="detail-body">
@@ -3988,10 +4054,9 @@
           <div class="detail-label">完整报告</div>
           <div class="detail-body">
             <div class="research-report-contact">
-              <small>FULL REPORT · V1.6</small>
-              <h3>加微信，拿 2 万字完整报告</h3>
-              <p>完整版共 70 页、23,584 字。微信号 Stong18292879652，备注“竞品报告”。</p>
-              <button class="button primary" type="button" data-copy="Stong18292879652">复制微信号 <span class="arrow">→</span></button>
+              <h3>如需查看完整报告</h3>
+              <p>本页展示了报告的主要结论和场景分析。完整版本共 70 页、23,584 字；如果需要进一步查看，可以通过微信联系。</p>
+              <div class="research-report-contact-row"><span>微信：<strong>Stong18292879652</strong>，备注“竞品报告”</span><button type="button" data-copy="Stong18292879652">复制微信号</button></div>
             </div>
           </div>
         </section>
