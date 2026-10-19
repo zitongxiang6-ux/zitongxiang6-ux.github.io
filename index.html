@@ -385,6 +385,13 @@
     }
     .section-title p { max-width: 760px; margin-top: 17px; color: var(--ink-soft); font-size: 15px; line-height: 1.9; }
     .dark .section-title p { color: rgba(255,250,241,.5); }
+    @media (min-width: 900px) {
+      #about .section-title h2,
+      #work .section-title h2 { max-width: none; font-size: clamp(28px, 3vw, 44px); white-space: nowrap; }
+    }
+    @media (min-width: 1100px) {
+      #work .section-title p { max-width: none; white-space: nowrap; }
+    }
     .eyebrow { color: var(--gold); font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
     .soft-text { color: var(--ink-soft); line-height: 1.85; }
 
@@ -1543,6 +1550,27 @@
     .skill-card-value span { margin-right: 6px; color: rgba(255,250,241,.3); font-size: 7px; font-weight: 750; letter-spacing: .12em; }
     .skill-showcase-status { margin-top: 12px; color: rgba(255,250,241,.28); font-size: 7px; letter-spacing: .12em; text-align: center; }
 
+    .work-carousel { position: relative; overflow: hidden; background: #211d19; }
+    .work-carousel-track {
+      display: flex;
+      align-items: stretch;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      overscroll-behavior-inline: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+    .work-carousel-track::-webkit-scrollbar { display: none; }
+    .work-carousel-track > article { flex: 0 0 100%; width: 100%; scroll-snap-align: start; scroll-snap-stop: always; }
+    .work-carousel-footer { display: flex; align-items: flex-start; justify-content: space-between; gap: 28px; padding-top: 17px; background: var(--black-2); }
+    .work-carousel-dots { flex: 1 1 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 220px)); gap: 12px; }
+    .work-carousel-dot { min-height: 48px; border: 0; border-top: 1px solid rgba(255,255,255,.14); padding: 10px 0 0; color: rgba(255,250,241,.4); background: transparent; font: inherit; text-align: left; cursor: pointer; transition: color .25s ease, border-color .25s ease; }
+    .work-carousel-dot span { display: block; color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .14em; }
+    .work-carousel-dot strong { display: block; margin-top: 5px; font-size: 10px; }
+    .work-carousel-dot.is-active { border-top-color: var(--gold); color: var(--white); }
+    .work-carousel-toggle { flex: 0 0 auto; border: 0; padding: 10px 0; color: rgba(255,250,241,.42); background: transparent; font: inherit; font-size: 9px; cursor: pointer; }
+    .work-carousel-toggle:hover { color: var(--gold-light); }
+
     .work-shell {
       --work-parallax-x: 0px;
       --work-parallax-y: 0px;
@@ -1555,10 +1583,10 @@
       grid-template-columns: 1fr 1.15fr;
       min-height: 590px;
       overflow: hidden;
-      border: 1px solid var(--line-dark);
-      border-radius: var(--radius-xl);
+      border: 0;
+      border-radius: 0;
       background: #211d19;
-      box-shadow: 0 34px 90px rgba(0,0,0,.22);
+      box-shadow: none;
       isolation: isolate;
     }
     .work-shell::before {
@@ -1695,13 +1723,13 @@
       display: grid;
       grid-template-columns: 1.08fr .92fr;
       min-height: 470px;
-      margin-top: 24px;
+      margin-top: 0;
       overflow: hidden;
-      border: 1px solid rgba(221,185,121,.2);
-      border-radius: var(--radius-xl);
+      border: 0;
+      border-radius: 0;
       color: var(--ink);
       background: #eee7dc;
-      box-shadow: 0 34px 90px rgba(0,0,0,.18);
+      box-shadow: none;
       isolation: isolate;
     }
     .research-work-shell::before {
@@ -2761,6 +2789,8 @@
       .method-dot.is-active { width: 42px; }
       .method-wheel-hint { display: none; }
       .work-copy { padding: 32px 24px; }
+      .work-carousel-footer { gap: 18px; }
+      .work-carousel-dots { grid-template-columns: repeat(2, 1fr); }
       .work-actions { display: grid; grid-template-columns: 1fr 1fr; }
       .work-actions .button { padding-inline: 12px; }
       .work-visual { min-height: 320px; }
@@ -3352,53 +3382,64 @@
             <p>这里保留两类能力证据：一类是从业务建模到 AI 协同实现的产品实践，另一类是从行业、战略、场景到体验证据的系统研究。</p>
           </div>
         </div>
-        <article class="work-shell reveal" data-work-stage>
-          <div class="work-copy">
-            <span class="status">持续迭代 · 个人作品</span>
-            <h3>AI 原生智能家居 CRM / SFA</h3>
-            <p>面向项目制销售团队，将展会获客、线索分配、跟进、项目报备、审核、商机推进和客户转化串成一条可执行、可追踪的业务链路。</p>
-            <div class="work-list">
-              <span>独立负责产品规划、业务对象与规则梳理</span>
-              <span>建立需求池、PRD、低保真和交互 Demo</span>
-              <span>使用 AI 协同开发，并执行页面巡检与回归验收</span>
-            </div>
-            <div class="work-actions">
-              <a class="button primary experience-button" href="http://43.161.241.70/" data-experience-link target="_blank" rel="noopener noreferrer" data-magnetic><span class="button-dot"></span>体验产品 <span class="arrow">↗</span></a>
-              <button class="button dark" type="button" data-detail="work-ai-crm" data-magnetic>查看完整作品 <span class="arrow">→</span></button>
-            </div>
+        <div class="work-carousel reveal" data-work-carousel aria-roledescription="carousel" aria-label="代表作品">
+          <div class="work-carousel-track" data-work-carousel-track>
+            <article class="work-shell" id="work-slide-product" data-work-slide data-work-stage role="group" aria-roledescription="slide" aria-label="1 / 2，AI 原生智能家居 CRM">
+              <div class="work-copy">
+                <span class="status">持续迭代 · 个人作品</span>
+                <h3>AI 原生智能家居 CRM / SFA</h3>
+                <p>面向项目制销售团队，将展会获客、线索分配、跟进、项目报备、审核、商机推进和客户转化串成一条可执行、可追踪的业务链路。</p>
+                <div class="work-list">
+                  <span>独立负责产品规划、业务对象与规则梳理</span>
+                  <span>建立需求池、PRD、低保真和交互 Demo</span>
+                  <span>使用 AI 协同开发，并执行页面巡检与回归验收</span>
+                </div>
+                <div class="work-actions">
+                  <a class="button primary experience-button" href="http://43.161.241.70/" data-experience-link target="_blank" rel="noopener noreferrer" data-magnetic><span class="button-dot"></span>体验产品 <span class="arrow">↗</span></a>
+                  <button class="button dark" type="button" data-detail="work-ai-crm" data-magnetic>查看完整作品 <span class="arrow">→</span></button>
+                </div>
+              </div>
+              <div class="work-visual">
+                <img src="/project-crm.jpg" alt="AI 原生智能家居 CRM SFA 作品预览">
+                <div class="work-scan-line" aria-hidden="true"></div>
+                <div class="work-flow-rail" aria-hidden="true"><span>获客</span><span>线索</span><span>分配</span><span>跟进</span><span>报备</span><span>审核</span><span>商机</span><span>转化</span></div>
+                <div class="work-visual-label">展会扫码 → 线索 → 地区分配 → 跟进 → 项目报备 → 审核 → 商机 → 合作客户</div>
+              </div>
+            </article>
+            <article class="research-work-shell" id="work-slide-research" data-work-slide role="group" aria-roledescription="slide" aria-label="2 / 2，纷享销客深度竞品研究" aria-labelledby="fxiaoke-research-title">
+              <div class="research-work-copy">
+                <span class="status">个人独立完成 · 企业级 CRM 研究</span>
+                <h3 id="fxiaoke-research-title">纷享销客深度竞品研究</h3>
+                <p>我连续一周深度使用纷享销客和销售易，围绕行业、产品能力、五个业务场景和 AI Agent，写成这份 70 页竞品分析报告。</p>
+                <div class="research-metrics" aria-label="研究规模">
+                  <div class="research-metric"><strong>23,000+</strong><span>汉字</span></div>
+                  <div class="research-metric"><strong>70</strong><span>页报告</span></div>
+                  <div class="research-metric"><strong>48</strong><span>张产品截图</span></div>
+                  <div class="research-metric"><strong>5+1</strong><span>业务场景与 AI 专题</span></div>
+                  <div class="research-metric"><strong>V1.6</strong><span>持续迭代版本</span></div>
+                </div>
+                <div class="work-actions">
+                  <button class="button primary" type="button" data-detail="work-fxiaoke-research" data-magnetic>查看研究案例 <span class="arrow">→</span></button>
+                </div>
+              </div>
+              <div class="research-dossier" aria-hidden="true">
+                <div class="dossier-sheet">
+                  <small>RESEARCH DOSSIER · CRM</small>
+                  <h4>纷享销客<br>竞品分析</h4>
+                  <p>行业格局 / 战略定位 / 关键能力<br>五个业务场景 / AI Agent / 产品体验</p>
+                  <div class="dossier-page-no"><strong>70</strong><span>PAGES · V1.6</span></div>
+                </div>
+              </div>
+            </article>
           </div>
-          <div class="work-visual">
-            <img src="/project-crm.jpg" alt="AI 原生智能家居 CRM SFA 作品预览">
-            <div class="work-scan-line" aria-hidden="true"></div>
-            <div class="work-flow-rail" aria-hidden="true"><span>获客</span><span>线索</span><span>分配</span><span>跟进</span><span>报备</span><span>审核</span><span>商机</span><span>转化</span></div>
-            <div class="work-visual-label">展会扫码 → 线索 → 地区分配 → 跟进 → 项目报备 → 审核 → 商机 → 合作客户</div>
-          </div>
-        </article>
-        <article class="research-work-shell reveal" aria-labelledby="fxiaoke-research-title">
-          <div class="research-work-copy">
-            <span class="status">个人独立完成 · 企业级 CRM 研究</span>
-            <h3 id="fxiaoke-research-title">纷享销客深度竞品研究</h3>
-            <p>我连续一周深度使用纷享销客和销售易，围绕行业、产品能力、五个业务场景和 AI Agent，写成这份 70 页竞品分析报告。</p>
-            <div class="research-metrics" aria-label="研究规模">
-              <div class="research-metric"><strong>23,000+</strong><span>汉字</span></div>
-              <div class="research-metric"><strong>70</strong><span>页报告</span></div>
-              <div class="research-metric"><strong>48</strong><span>张产品截图</span></div>
-              <div class="research-metric"><strong>5+1</strong><span>业务场景与 AI 专题</span></div>
-              <div class="research-metric"><strong>V1.6</strong><span>持续迭代版本</span></div>
+          <div class="work-carousel-footer">
+            <div class="work-carousel-dots" aria-label="选择代表作品">
+              <button class="work-carousel-dot is-active" type="button" data-work-carousel-dot="0" aria-controls="work-slide-product" aria-selected="true"><span>01</span><strong>产品实践</strong></button>
+              <button class="work-carousel-dot" type="button" data-work-carousel-dot="1" aria-controls="work-slide-research" aria-selected="false"><span>02</span><strong>竞品研究</strong></button>
             </div>
-            <div class="work-actions">
-              <button class="button primary" type="button" data-detail="work-fxiaoke-research" data-magnetic>查看研究案例 <span class="arrow">→</span></button>
-            </div>
+            <button class="work-carousel-toggle" type="button" data-work-carousel-toggle aria-pressed="false">暂停自动切换</button>
           </div>
-          <div class="research-dossier" aria-hidden="true">
-            <div class="dossier-sheet">
-              <small>RESEARCH DOSSIER · CRM</small>
-              <h4>纷享销客<br>竞品分析</h4>
-              <p>行业格局 / 战略定位 / 关键能力<br>五个业务场景 / AI Agent / 产品体验</p>
-              <div class="dossier-page-no"><strong>70</strong><span>PAGES · V1.6</span></div>
-            </div>
-          </div>
-        </article>
+        </div>
       </div>
     </section>
 
@@ -5210,6 +5251,105 @@
         }
       });
     });
+
+    const workCarousel = document.querySelector('[data-work-carousel]');
+    const workCarouselTrack = workCarousel?.querySelector('[data-work-carousel-track]');
+    const workCarouselSlides = workCarousel ? Array.from(workCarousel.querySelectorAll('[data-work-slide]')) : [];
+    const workCarouselDots = workCarousel ? Array.from(workCarousel.querySelectorAll('[data-work-carousel-dot]')) : [];
+    const workCarouselToggle = workCarousel?.querySelector('[data-work-carousel-toggle]');
+    let workCarouselIndex = 0;
+    let workCarouselTimer = 0;
+    let workCarouselScrollTimer = 0;
+    let workCarouselVisible = false;
+    let workCarouselPaused = false;
+    let workCarouselHovering = false;
+
+    function renderWorkCarouselState() {
+      workCarouselDots.forEach(function (dot, index) {
+        const active = index === workCarouselIndex;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', String(active));
+      });
+    }
+
+    function stopWorkCarouselTimer() {
+      window.clearTimeout(workCarouselTimer);
+      workCarouselTimer = 0;
+    }
+
+    function scheduleWorkCarousel() {
+      stopWorkCarouselTimer();
+      if (!workCarouselVisible || workCarouselPaused || workCarouselHovering || reducedMotion.matches || workCarouselSlides.length < 2) return;
+      workCarouselTimer = window.setTimeout(function () {
+        goToWorkSlide((workCarouselIndex + 1) % workCarouselSlides.length, 'smooth');
+      }, 7000);
+    }
+
+    function goToWorkSlide(index, behavior) {
+      if (!workCarouselTrack || !workCarouselSlides.length) return;
+      workCarouselIndex = (index + workCarouselSlides.length) % workCarouselSlides.length;
+      const target = workCarouselSlides[workCarouselIndex];
+      workCarouselTrack.scrollTo({ left: target.offsetLeft - workCarouselTrack.offsetLeft, behavior: behavior || 'smooth' });
+      renderWorkCarouselState();
+      scheduleWorkCarousel();
+    }
+
+    if (workCarousel && workCarouselTrack && workCarouselSlides.length) {
+      renderWorkCarouselState();
+      workCarouselDots.forEach(function (dot, index) {
+        dot.addEventListener('click', function () { goToWorkSlide(index, 'smooth'); });
+      });
+      workCarouselTrack.addEventListener('scroll', function () {
+        window.clearTimeout(workCarouselScrollTimer);
+        workCarouselScrollTimer = window.setTimeout(function () {
+          const trackCenter = workCarouselTrack.scrollLeft + workCarouselTrack.clientWidth / 2;
+          let closestIndex = 0;
+          let closestDistance = Infinity;
+          workCarouselSlides.forEach(function (slide, index) {
+            const slideCenter = slide.offsetLeft - workCarouselTrack.offsetLeft + slide.offsetWidth / 2;
+            const distance = Math.abs(slideCenter - trackCenter);
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              closestIndex = index;
+            }
+          });
+          workCarouselIndex = closestIndex;
+          renderWorkCarouselState();
+          scheduleWorkCarousel();
+        }, 140);
+      }, { passive: true });
+      workCarousel.addEventListener('pointerenter', function () {
+        workCarouselHovering = true;
+        stopWorkCarouselTimer();
+      });
+      workCarousel.addEventListener('pointerleave', function () {
+        workCarouselHovering = false;
+        scheduleWorkCarousel();
+      });
+      if (workCarouselToggle) {
+        if (reducedMotion.matches) {
+          workCarouselToggle.textContent = '自动切换已关闭';
+          workCarouselToggle.disabled = true;
+        } else {
+          workCarouselToggle.addEventListener('click', function () {
+            workCarouselPaused = !workCarouselPaused;
+            workCarouselToggle.setAttribute('aria-pressed', String(workCarouselPaused));
+            workCarouselToggle.textContent = workCarouselPaused ? '继续自动切换' : '暂停自动切换';
+            scheduleWorkCarousel();
+          });
+        }
+      }
+      if ('IntersectionObserver' in window) {
+        const workCarouselObserver = new IntersectionObserver(function (entries) {
+          workCarouselVisible = entries.some(function (entry) { return entry.isIntersecting && entry.intersectionRatio >= .28; });
+          scheduleWorkCarousel();
+        }, { threshold: [0, .28, .6] });
+        workCarouselObserver.observe(workCarousel);
+      } else {
+        workCarouselVisible = true;
+        scheduleWorkCarousel();
+      }
+    }
 
     const workStage = document.querySelector('[data-work-stage]');
     const heroStage = document.querySelector('[data-hero-stage]');
