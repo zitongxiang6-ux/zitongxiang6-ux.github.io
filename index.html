@@ -389,9 +389,6 @@
       #about .section-title h2,
       #work .section-title h2 { max-width: none; font-size: clamp(28px, 3vw, 44px); white-space: nowrap; }
     }
-    @media (min-width: 1100px) {
-      #work .section-title p { max-width: none; white-space: nowrap; }
-    }
     .eyebrow { color: var(--gold); font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
     .soft-text { color: var(--ink-soft); line-height: 1.85; }
 
@@ -1550,7 +1547,10 @@
     .skill-card-value span { margin-right: 6px; color: rgba(255,250,241,.3); font-size: 7px; font-weight: 750; letter-spacing: .12em; }
     .skill-showcase-status { margin-top: 12px; color: rgba(255,250,241,.28); font-size: 7px; letter-spacing: .12em; text-align: center; }
 
-    .work-carousel { position: relative; overflow: hidden; background: #211d19; }
+    #work { overflow: hidden; padding-bottom: 0; }
+    #work .section-inner { width: 100%; }
+    #work .section-head { width: var(--content); margin-right: auto; margin-left: auto; }
+    .work-carousel { position: relative; overflow: hidden; background: #14120f; }
     .work-carousel-track {
       display: flex;
       align-items: stretch;
@@ -1562,7 +1562,7 @@
     }
     .work-carousel-track::-webkit-scrollbar { display: none; }
     .work-carousel-track > article { flex: 0 0 100%; width: 100%; scroll-snap-align: start; scroll-snap-stop: always; }
-    .work-carousel-footer { display: flex; align-items: flex-start; justify-content: space-between; gap: 28px; padding-top: 17px; background: var(--black-2); }
+    .work-carousel-footer { width: var(--content); display: flex; align-items: flex-start; justify-content: space-between; gap: 28px; margin: 0 auto; padding: 18px 0 34px; background: transparent; }
     .work-carousel-dots { flex: 1 1 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 220px)); gap: 12px; }
     .work-carousel-dot { min-height: 48px; border: 0; border-top: 1px solid rgba(255,255,255,.14); padding: 10px 0 0; color: rgba(255,250,241,.4); background: transparent; font: inherit; text-align: left; cursor: pointer; transition: color .25s ease, border-color .25s ease; }
     .work-carousel-dot span { display: block; color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .14em; }
@@ -1574,8 +1574,6 @@
     .work-shell {
       --work-parallax-x: 0px;
       --work-parallax-y: 0px;
-      --work-label-x: 0px;
-      --work-label-y: 0px;
       --work-spot-x: 50%;
       --work-spot-y: 50%;
       position: relative;
@@ -1636,88 +1634,6 @@
       background: #201b15;
       box-shadow: 0 0 0 4px rgba(32,27,21,.1);
     }
-    .work-visual { position: relative; z-index: 1; min-height: 460px; overflow: hidden; background: #3b352f; }
-    .work-visual img {
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(.5) brightness(.66);
-      transform: scale(1.07) translate3d(var(--work-parallax-x), var(--work-parallax-y), 0);
-      transition: transform .75s cubic-bezier(.2,.7,.2,1), filter .5s ease;
-      will-change: transform;
-    }
-    .work-shell:hover .work-visual img,
-    .work-shell.is-previewing .work-visual img { filter: saturate(.72) brightness(.74); }
-    .work-visual::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, #211d19, transparent 28%), linear-gradient(0deg, rgba(23,21,18,.62), transparent 48%); pointer-events: none; }
-    .work-flow-rail {
-      position: absolute;
-      z-index: 3;
-      top: 42px;
-      right: 36px;
-      left: 54px;
-      display: flex;
-      justify-content: space-between;
-      color: rgba(255,250,241,.34);
-      font-size: 7px;
-      letter-spacing: .08em;
-      opacity: .56;
-      transition: opacity .35s ease, transform .5s ease;
-    }
-    .work-flow-rail::before,
-    .work-flow-rail::after {
-      content: "";
-      position: absolute;
-      top: 4px;
-      right: 0;
-      left: 0;
-      height: 1px;
-      background: rgba(221,185,121,.18);
-    }
-    .work-flow-rail::after {
-      right: auto;
-      width: 64px;
-      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
-      box-shadow: 0 0 16px rgba(221,185,121,.65);
-      animation: flowSignal 4.2s ease-in-out infinite;
-    }
-    @keyframes flowSignal { from { transform: translateX(-60px); } to { transform: translateX(520px); } }
-    .work-flow-rail span { position: relative; z-index: 1; padding-top: 16px; text-shadow: 0 2px 10px rgba(0,0,0,.85); }
-    .work-flow-rail span::before { content: ""; position: absolute; top: 0; left: 50%; width: 8px; height: 8px; border: 2px solid #2a241d; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 3px rgba(221,185,121,.08), 0 0 12px rgba(221,185,121,.38); transform: translateX(-50%); }
-    .work-shell:hover .work-flow-rail,
-    .work-shell.is-previewing .work-flow-rail { opacity: 1; transform: translateY(3px); }
-    .work-scan-line {
-      position: absolute;
-      z-index: 2;
-      top: 0;
-      bottom: 0;
-      left: -18%;
-      width: 14%;
-      pointer-events: none;
-      opacity: 0;
-      background: linear-gradient(90deg, transparent, rgba(221,185,121,.08), rgba(255,255,255,.06), transparent);
-      transform: skewX(-12deg);
-    }
-    .work-shell:hover .work-scan-line,
-    .work-shell.is-previewing .work-scan-line { opacity: 1; animation: workScan 3.8s ease-in-out infinite; }
-    @keyframes workScan { from { left: -18%; } to { left: 112%; } }
-    .work-visual-label {
-      position: absolute;
-      z-index: 4;
-      right: 24px;
-      bottom: 24px;
-      max-width: 290px;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 14px;
-      padding: 16px;
-      color: rgba(255,255,255,.72);
-      background: rgba(20,18,15,.68);
-      font-size: 11px;
-      line-height: 1.7;
-      backdrop-filter: blur(16px);
-      transform: translate3d(var(--work-label-x), var(--work-label-y), 0);
-      transition: transform .75s cubic-bezier(.2,.7,.2,1), border-color .3s ease, background .3s ease;
-    }
-    .work-shell:hover .work-visual-label { border-color: rgba(221,185,121,.35); background: rgba(20,18,15,.8); }
-
     .research-work-shell {
       position: relative;
       display: grid;
@@ -1750,42 +1666,68 @@
     .research-work-shell .work-actions .button.primary { color: var(--white); background: var(--black-2); }
     .research-work-shell .work-actions .button.dark { border-color: rgba(42,34,27,.18); color: var(--ink); background: transparent; }
     .research-work-shell .work-actions .button.dark:hover { border-color: rgba(140,96,41,.38); background: rgba(255,255,255,.42); }
-    .research-dossier {
+    .work-shell,
+    .research-work-shell {
       position: relative;
-      z-index: 1;
-      min-height: 470px;
-      display: grid;
-      place-items: center;
+      display: block;
+      min-height: clamp(620px, 72vh, 820px);
       overflow: hidden;
       color: var(--white);
-      background: #191612;
+      background: #14120f;
+      isolation: isolate;
     }
-    .research-dossier::before,
-    .research-dossier::after { content: ""; position: absolute; border: 1px solid rgba(221,185,121,.15); border-radius: 50%; }
-    .research-dossier::before { width: 430px; height: 430px; right: -145px; top: -95px; }
-    .research-dossier::after { width: 280px; height: 280px; right: -62px; top: -25px; }
-    .dossier-sheet {
+    .work-slide-background {
+      position: absolute;
+      z-index: -3;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(.72) brightness(.72);
+      transform: scale(1.02) translate3d(var(--work-parallax-x, 0), var(--work-parallax-y, 0), 0);
+      transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .5s ease;
+      will-change: transform;
+    }
+    .work-shell::after,
+    .research-work-shell::after {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(14,12,10,.95) 0%, rgba(14,12,10,.8) 38%, rgba(14,12,10,.34) 68%, rgba(14,12,10,.18) 100%), linear-gradient(0deg, rgba(10,9,8,.56), transparent 55%);
+    }
+    .research-work-shell::after {
+      background: linear-gradient(90deg, rgba(13,11,9,.96) 0%, rgba(13,11,9,.88) 42%, rgba(13,11,9,.5) 72%, rgba(13,11,9,.3) 100%), linear-gradient(0deg, rgba(10,9,8,.58), transparent 62%);
+    }
+    .work-shell:hover .work-slide-background,
+    .work-shell.is-previewing .work-slide-background,
+    .research-work-shell:hover .work-slide-background { filter: saturate(.88) brightness(.78); transform: scale(1.035) translate3d(var(--work-parallax-x, 0), var(--work-parallax-y, 0), 0); }
+    .work-copy,
+    .research-work-copy {
       position: relative;
       z-index: 2;
-      width: min(72%, 350px);
-      aspect-ratio: .73;
+      width: var(--content);
+      min-height: inherit;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      border: 1px solid rgba(221,185,121,.28);
-      padding: 34px 30px;
-      background: linear-gradient(160deg, #28221c, #171411 72%);
-      box-shadow: 0 30px 80px rgba(0,0,0,.38);
-      transform: rotate(3deg);
-      transition: transform .5s cubic-bezier(.2,.8,.2,1), border-color .35s ease;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0 auto;
+      padding: clamp(64px, 9vw, 120px) 0;
     }
-    .research-work-shell:hover .dossier-sheet { border-color: rgba(221,185,121,.52); transform: rotate(0deg) translateY(-4px); }
-    .dossier-sheet small { color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .2em; }
-    .dossier-sheet h4 { max-width: 230px; font-size: clamp(28px, 2.8vw, 40px); line-height: 1.14; letter-spacing: -.04em; }
-    .dossier-sheet p { color: rgba(255,250,241,.48); font-size: 10px; line-height: 1.75; }
-    .dossier-page-no { display: flex; align-items: flex-end; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.1); padding-top: 18px; }
-    .dossier-page-no strong { color: var(--gold-light); font-family: var(--font-display); font-size: 52px; font-style: italic; line-height: .8; }
-    .dossier-page-no span { color: rgba(255,250,241,.32); font-size: 8px; letter-spacing: .14em; }
+    .work-copy h3,
+    .research-work-copy h3 { max-width: 620px; color: var(--white); }
+    .work-copy > p,
+    .research-work-copy > p { max-width: 620px; color: rgba(255,250,241,.68); }
+    .work-list { width: min(100%, 620px); }
+    .research-work-copy .status { border-color: rgba(221,185,121,.3); color: var(--gold-light); background: rgba(15,13,11,.28); }
+    .research-metrics { width: min(100%, 720px); }
+    .research-metric { border-top-color: rgba(255,255,255,.18); }
+    .research-metric strong { color: var(--gold-light); }
+    .research-metric span { color: rgba(255,250,241,.52); }
+    .research-work-shell .work-actions .button.primary { color: #1b1712; background: var(--gold-light); }
 
     #thinking .section-head { margin-bottom: 28px; }
     .thought-intro {
@@ -2007,86 +1949,33 @@
     .thought-view-all:focus-visible .view-all-arrow { color: #18130e; background: var(--gold-light); transform: translate(4px,-4px) rotate(8deg); }
 
     .contact-box {
-      --contact-spot-x: 70%;
-      --contact-spot-y: 50%;
-      position: relative;
       display: grid;
       grid-template-columns: 1.05fr .95fr;
-      gap: 60px;
-      align-items: center;
-      border: 1px solid var(--line-dark);
-      border-radius: var(--radius-xl);
-      padding: clamp(34px, 6vw, 74px);
-      background: #211d19;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      isolation: isolate;
+      gap: clamp(54px, 8vw, 120px);
+      align-items: end;
+      padding: 0;
     }
-    .contact-box::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      opacity: .38;
-      background:
-        radial-gradient(circle at var(--contact-spot-x) var(--contact-spot-y), rgba(221,185,121,.2), transparent 24%),
-        linear-gradient(115deg, transparent 38%, rgba(255,255,255,.018) 50%, transparent 62%);
-      transition: opacity .35s ease;
-    }
-    .contact-box::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      right: -170px;
-      bottom: -220px;
-      width: 470px;
-      height: 470px;
-      border: 1px solid rgba(221,185,121,.1);
-      border-radius: 50%;
-      box-shadow: 0 0 0 58px rgba(221,185,121,.025), 0 0 0 116px rgba(221,185,121,.016);
-      animation: contactRadar 8s ease-in-out infinite;
-    }
-    .contact-box:hover::before,
-    .contact-box.is-previewing::before { opacity: .88; }
-    @keyframes contactRadar { 50% { transform: scale(1.06); opacity: .6; } }
     .contact-box h2 { margin-top: 12px; font-family: var(--font-sans); font-size: clamp(34px, 3.8vw, 50px); font-weight: 600; line-height: 1.24; letter-spacing: -.035em; }
     .contact-box p { margin-top: 18px; color: rgba(255,250,241,.5); font-size: 14px; line-height: 1.85; }
-    .contact-actions { display: grid; gap: 10px; }
+    .contact-actions { display: grid; gap: 18px; }
     .contact-actions a,
     .contact-actions button {
-      position: relative;
-      min-height: 66px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 13px;
-      padding: 0 18px;
+      border: 0;
+      padding: 0;
       color: var(--white);
-      background: rgba(255,255,255,.035);
+      background: transparent;
       cursor: pointer;
       text-align: left;
-      overflow: hidden;
-      transition: border-color .2s ease, background .2s ease, transform .22s ease;
-    }
-    .contact-actions a::before,
-    .contact-actions button::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(200,146,77,.16), transparent 68%);
-      transform: translateX(-102%);
-      transition: transform .42s cubic-bezier(.2,.75,.25,1);
+      transition: color .2s ease, transform .22s ease;
     }
     .contact-actions a:hover,
-    .contact-actions button:hover { border-color: rgba(221,185,121,.42); background: rgba(200,146,77,.08); }
-    .contact-actions a:hover::before,
-    .contact-actions button:hover::before { transform: translateX(0); }
+    .contact-actions button:hover { color: var(--gold-light); }
     .contact-actions span { color: rgba(255,250,241,.4); font-size: 10px; letter-spacing: .1em; }
     .contact-actions strong { font-size: 12px; font-weight: 600; }
-    .contact-actions span,
-    .contact-actions strong { position: relative; z-index: 1; }
 
     footer {
       display: flex;
@@ -2613,9 +2502,8 @@
       .ai-agent { padding: 18px; }
       .ai-flow-tab { padding: 16px 14px; }
       .ai-phase-role { padding: 28px 24px; }
-      .work-shell { grid-template-columns: 1fr; }
-      .work-visual { min-height: 410px; }
-      .work-flow-rail { left: 34px; right: 34px; }
+      .work-shell,
+      .research-work-shell { min-height: 640px; }
       .thought-intro { grid-template-columns: 135px minmax(0, 1fr); gap: 26px; }
       .thought-journal { grid-template-columns: 112px minmax(0, 1.12fr) minmax(280px, .88fr); grid-template-rows: minmax(360px, 1fr) 130px; }
       .thought-spine { padding: 28px 20px 24px; }
@@ -2633,8 +2521,6 @@
       .method-skills-inner { width: calc(100vw - 40px); }
       .method-skills-heading { grid-template-columns: 145px minmax(0, 1fr) auto; }
       .method-skills-heading p { display: none; }
-      .research-work-shell { grid-template-columns: 1fr; }
-      .research-dossier { min-height: 430px; }
       .research-map { grid-template-columns: repeat(3, 1fr); }
       .research-map-step:nth-child(3)::after { display: none; }
       .research-shot-grid { grid-template-columns: 1fr; }
@@ -2788,21 +2674,17 @@
       .method-dot { width: 26px; }
       .method-dot.is-active { width: 42px; }
       .method-wheel-hint { display: none; }
-      .work-copy { padding: 32px 24px; }
+      .work-shell,
+      .research-work-shell { min-height: 620px; }
+      .work-copy,
+      .research-work-copy { width: var(--content); padding: 54px 0; }
       .work-carousel-footer { gap: 18px; }
       .work-carousel-dots { grid-template-columns: repeat(2, 1fr); }
       .work-actions { display: grid; grid-template-columns: 1fr 1fr; }
       .work-actions .button { padding-inline: 12px; }
-      .work-visual { min-height: 320px; }
-      .work-visual::after { background: linear-gradient(0deg, #211d19, transparent 38%); }
-      .work-flow-rail { display: none; }
-      .work-visual-label { right: 18px; bottom: 18px; left: 18px; max-width: none; }
-      .research-work-copy { padding: 32px 24px; }
       .research-work-copy h3 { font-size: 34px; }
       .research-metrics { grid-template-columns: repeat(2, 1fr); gap: 14px 10px; }
       .research-metric:last-child { grid-column: 1 / -1; }
-      .research-dossier { min-height: 390px; }
-      .dossier-sheet { width: min(72%, 286px); padding: 28px 25px; }
       .launch-mark { width: 96px; height: 96px; }
       #thinking .section-head { margin-bottom: 22px; }
       .thought-intro { grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; padding: 18px 0; font-size: 13px; }
@@ -2823,8 +2705,7 @@
       .thought-card-footer { padding-top: 16px; }
       .thought-view-all { min-height: 124px; grid-template-columns: 1fr auto; padding: 22px 24px; }
       .thought-view-all .view-all-copy { display: none; }
-      .contact-box { grid-template-columns: 1fr; gap: 34px; padding: 32px 22px; }
-      .contact-box::after { right: -270px; bottom: -270px; }
+      .contact-box { grid-template-columns: 1fr; gap: 42px; }
       footer { display: grid; padding: 24px 16px; }
       .detail-topbar-inner { height: 64px; }
       .detail-hero-inner { padding: 64px 0 52px; }
@@ -3379,12 +3260,12 @@
           <div class="section-no">04 / SELECTED WORK</div>
           <div class="section-title">
             <h2>既把复杂产品做出来，也把行业与竞品研究透。</h2>
-            <p>这里保留两类能力证据：一类是从业务建模到 AI 协同实现的产品实践，另一类是从行业、战略、场景到体验证据的系统研究。</p>
           </div>
         </div>
         <div class="work-carousel reveal" data-work-carousel aria-roledescription="carousel" aria-label="代表作品">
           <div class="work-carousel-track" data-work-carousel-track>
             <article class="work-shell" id="work-slide-product" data-work-slide data-work-stage role="group" aria-roledescription="slide" aria-label="1 / 2，AI 原生智能家居 CRM">
+              <img class="work-slide-background" src="/assets/project-bg-crm-v1.jpg" alt="" aria-hidden="true">
               <div class="work-copy">
                 <span class="status">持续迭代 · 个人作品</span>
                 <h3>AI 原生智能家居 CRM / SFA</h3>
@@ -3399,14 +3280,9 @@
                   <button class="button dark" type="button" data-detail="work-ai-crm" data-magnetic>查看完整作品 <span class="arrow">→</span></button>
                 </div>
               </div>
-              <div class="work-visual">
-                <img src="/project-crm.jpg" alt="AI 原生智能家居 CRM SFA 作品预览">
-                <div class="work-scan-line" aria-hidden="true"></div>
-                <div class="work-flow-rail" aria-hidden="true"><span>获客</span><span>线索</span><span>分配</span><span>跟进</span><span>报备</span><span>审核</span><span>商机</span><span>转化</span></div>
-                <div class="work-visual-label">展会扫码 → 线索 → 地区分配 → 跟进 → 项目报备 → 审核 → 商机 → 合作客户</div>
-              </div>
             </article>
             <article class="research-work-shell" id="work-slide-research" data-work-slide role="group" aria-roledescription="slide" aria-label="2 / 2，纷享销客深度竞品研究" aria-labelledby="fxiaoke-research-title">
+              <img class="work-slide-background" src="/assets/fxiaoke-opportunity-stage-config.png" alt="" aria-hidden="true">
               <div class="research-work-copy">
                 <span class="status">个人独立完成 · 企业级 CRM 研究</span>
                 <h3 id="fxiaoke-research-title">纷享销客深度竞品研究</h3>
@@ -3420,14 +3296,6 @@
                 </div>
                 <div class="work-actions">
                   <button class="button primary" type="button" data-detail="work-fxiaoke-research" data-magnetic>查看研究案例 <span class="arrow">→</span></button>
-                </div>
-              </div>
-              <div class="research-dossier" aria-hidden="true">
-                <div class="dossier-sheet">
-                  <small>RESEARCH DOSSIER · CRM</small>
-                  <h4>纷享销客<br>竞品分析</h4>
-                  <p>行业格局 / 战略定位 / 关键能力<br>五个业务场景 / AI Agent / 产品体验</p>
-                  <div class="dossier-page-no"><strong>70</strong><span>PAGES · V1.6</span></div>
                 </div>
               </div>
             </article>
@@ -3502,7 +3370,7 @@
 
     <section class="section dark" id="contact">
       <div class="section-inner">
-        <div class="contact-box reveal" data-contact-stage>
+        <div class="contact-box reveal">
           <div>
             <div class="eyebrow">LET'S TALK</div>
             <h2>最近在做什么？</h2>
@@ -5355,7 +5223,6 @@
     const heroStage = document.querySelector('[data-hero-stage]');
     const interactiveTimeline = document.querySelector('[data-timeline]');
     const tiltCards = Array.from(document.querySelectorAll('[data-tilt-card], .ai-agent'));
-    const contactStage = document.querySelector('[data-contact-stage]');
     if (heroStage && finePointer && !reducedMotion.matches) {
       heroStage.addEventListener('pointermove', function (event) {
         const rect = heroStage.getBoundingClientRect();
@@ -5386,16 +5253,12 @@
         const y = (event.clientY - rect.top) / rect.height - .5;
         workStage.style.setProperty('--work-parallax-x', (x * -12).toFixed(2) + 'px');
         workStage.style.setProperty('--work-parallax-y', (y * -8).toFixed(2) + 'px');
-        workStage.style.setProperty('--work-label-x', (x * 10).toFixed(2) + 'px');
-        workStage.style.setProperty('--work-label-y', (y * 7).toFixed(2) + 'px');
         workStage.style.setProperty('--work-spot-x', ((x + .5) * 100).toFixed(1) + '%');
         workStage.style.setProperty('--work-spot-y', ((y + .5) * 100).toFixed(1) + '%');
       });
       workStage.addEventListener('pointerleave', function () {
         workStage.style.setProperty('--work-parallax-x', '0px');
         workStage.style.setProperty('--work-parallax-y', '0px');
-        workStage.style.setProperty('--work-label-x', '0px');
-        workStage.style.setProperty('--work-label-y', '0px');
         workStage.style.setProperty('--work-spot-x', '50%');
         workStage.style.setProperty('--work-spot-y', '50%');
       });
@@ -5418,18 +5281,6 @@
           card.style.setProperty('--card-spot-x', '50%');
           card.style.setProperty('--card-spot-y', '50%');
         });
-      });
-    }
-
-    if (contactStage && finePointer && !reducedMotion.matches) {
-      contactStage.addEventListener('pointermove', function (event) {
-        const rect = contactStage.getBoundingClientRect();
-        contactStage.style.setProperty('--contact-spot-x', (((event.clientX - rect.left) / rect.width) * 100).toFixed(1) + '%');
-        contactStage.style.setProperty('--contact-spot-y', (((event.clientY - rect.top) / rect.height) * 100).toFixed(1) + '%');
-      });
-      contactStage.addEventListener('pointerleave', function () {
-        contactStage.style.setProperty('--contact-spot-x', '70%');
-        contactStage.style.setProperty('--contact-spot-y', '50%');
       });
     }
 
@@ -5519,7 +5370,6 @@
       const reviewTimeline = Math.max(0, Math.min(3, Number(params.get('timeline')) || 0));
       const reviewCareer = Math.max(0, Math.min(3, Number(params.get('career')) || 0));
       const reviewCardFx = Math.max(0, Math.min(2, Number(params.get('card_fx')) || 0));
-      const reviewContactFx = params.get('contact_fx');
       const reviewArticleFilter = params.get('article_filter');
       const reviewMethodPage = Math.max(0, Math.min(2, Number(params.get('method_page')) || 0));
       const reviewWheelSteps = Math.max(0, Math.min(5, Number(params.get('wheel_test')) || 0));
@@ -5556,7 +5406,6 @@
         const cards = Array.from(document.querySelectorAll('.thought-card'));
         if (cards[reviewCardFx]) cards[reviewCardFx].classList.add('is-previewing');
       }
-      if (reviewContactFx === 'active' && contactStage) contactStage.classList.add('is-previewing');
       if (reviewArticleFilter && articleFilters.some(function (button) { return button.dataset.articleFilter === reviewArticleFilter; })) setArticleFilter(reviewArticleFilter);
       if (params.has('method_page')) setActiveMethodPage(reviewMethodPage);
       if (reviewWheelSteps && projectShowcase) {
