@@ -2223,16 +2223,13 @@
     .research-timeline-item span { color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
     .research-timeline-item strong { display: block; margin-top: 9px; font-size: 13px; }
     .research-timeline-item p { margin-top: 7px; font-size: 10px; line-height: 1.65; }
-    .research-download { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; border: 1px solid rgba(221,185,121,.25); border-radius: 18px; padding: 28px; color: var(--white); background: #191612; }
-    .research-download h3 { color: var(--white); }
-    .research-download p { color: rgba(255,250,241,.52); font-size: 12px; }
-    .research-download-actions { display: flex; flex-wrap: wrap; gap: 9px; }
-    .research-full-report { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 12px; margin-top: 16px; padding-top: 15px; border-top: 1px solid rgba(221,185,121,.16); }
-    .research-full-report strong { color: var(--gold-light); font-size: 12px; }
-    .research-full-report span { color: rgba(255,250,241,.7); font-size: 11px; }
-    .research-full-report button { appearance: none; border: 0; border-bottom: 1px solid rgba(221,185,121,.48); padding: 0 0 2px; color: var(--gold-light); background: transparent; font: inherit; font-size: 10px; font-weight: 800; cursor: pointer; }
-    .research-full-report button:hover { color: var(--white); border-color: var(--white); }
-    .research-disclaimer { margin-top: 15px; color: rgba(255,250,241,.34); font-size: 9px; line-height: 1.7; }
+    .research-report-contact { position: relative; overflow: hidden; border: 1px solid rgba(221,185,121,.28); border-radius: 20px; padding: 38px; color: var(--white); background: radial-gradient(circle at 88% 18%, rgba(200,146,77,.2), transparent 34%), #191612; }
+    .research-report-contact::after { content: "23,584 字 / 70 页"; position: absolute; right: 24px; bottom: -8px; color: rgba(221,185,121,.06); font-size: clamp(34px, 6vw, 66px); font-weight: 800; letter-spacing: -.05em; white-space: nowrap; pointer-events: none; }
+    .research-report-contact > * { position: relative; z-index: 1; }
+    .research-report-contact small { color: var(--gold-light); font-size: 9px; font-weight: 800; letter-spacing: .14em; }
+    .research-report-contact h3 { max-width: 640px; margin-top: 12px; color: var(--white); font-size: clamp(28px, 4vw, 40px); line-height: 1.25; letter-spacing: -.035em; }
+    .research-report-contact p { max-width: 640px; margin-top: 13px; color: rgba(255,250,241,.66); font-size: 13px; line-height: 1.8; }
+    .research-report-contact button { margin-top: 22px; }
     .skill-detail .detail-hero { position: relative; overflow: hidden; background: #14120f; }
     .skill-detail .detail-hero::after {
       content: "WORK / SYSTEM / DELIVERY";
@@ -2809,7 +2806,8 @@
       .research-shot img { height: auto; min-height: 190px; }
       .research-timeline-item { min-height: 120px; padding-left: 18px; border-top: 0; border-left: 1px solid rgba(140,96,41,.28); }
       .research-timeline-item::before { top: 0; left: -5px; }
-      .research-download { grid-template-columns: 1fr; padding: 24px; }
+      .research-report-contact { padding: 27px 23px; }
+      .research-report-contact::after { right: 16px; font-size: 34px; }
       .skill-detail .detail-content { width: calc(100vw - 32px); }
       .skill-use-list,
       .skill-io-grid,
@@ -3350,9 +3348,9 @@
         </article>
         <article class="research-work-shell reveal" aria-labelledby="fxiaoke-research-title">
           <div class="research-work-copy">
-            <span class="status">个人主导 · 企业级 CRM 研究</span>
+            <span class="status">个人独立完成 · 企业级 CRM 研究</span>
             <h3 id="fxiaoke-research-title">纷享销客深度竞品研究</h3>
-            <p>从行业格局、战略定位与资源能力，到营销、线索、客户、商机、经营分析与 AI Agent，完成一次基于公开资料与产品实测的系统拆解。</p>
+            <p>我连续一周深度使用纷享销客和销售易，围绕行业、产品能力、五个业务场景和 AI Agent，写成这份 70 页竞品分析报告。</p>
             <div class="research-metrics" aria-label="研究规模">
               <div class="research-metric"><strong>23,000+</strong><span>汉字</span></div>
               <div class="research-metric"><strong>70</strong><span>页报告</span></div>
@@ -3362,7 +3360,6 @@
             </div>
             <div class="work-actions">
               <button class="button primary" type="button" data-detail="work-fxiaoke-research" data-magnetic>查看研究案例 <span class="arrow">→</span></button>
-              <a class="button dark" href="/downloads/fxiaoke-crm-research-public-summary.pdf" target="_blank" rel="noopener" data-magnetic>预览公开版 <span class="arrow">↗</span></a>
             </div>
           </div>
           <div class="research-dossier" aria-hidden="true">
@@ -3469,7 +3466,7 @@
           <button type="button" data-research-anchor="research-evidence">机制实测</button>
           <button type="button" data-research-anchor="research-experience">产品体验</button>
           <button type="button" data-research-anchor="research-iteration">迭代过程</button>
-          <button type="button" data-research-anchor="research-summary">公开摘要</button>
+          <button type="button" data-research-anchor="research-report">完整报告</button>
         </nav>
         <button class="detail-close" type="button" data-close-detail>← 返回首页</button>
       </div>
@@ -3835,19 +3832,18 @@
         <div class="detail-hero-inner">
           <div class="eyebrow">PERSONAL RESEARCH · ENTERPRISE CRM</div>
           <h2>纷享销客深度竞品研究</h2>
-          <p class="detail-lead">这不是一份功能清单，而是一次围绕纷享销客竞争力、适配边界和产品机制展开的企业级 CRM 研究：从宏观行业、战略与资源，深入到真实业务场景、界面体验和 AI Agent 的执行闭环。</p>
         </div>
       </header>
       <div class="detail-content">
         <section class="detail-section" id="research-overview">
           <div class="detail-label">研究概览</div>
           <div class="detail-body">
-            <h3>把“它有什么功能”推进到“它为什么有竞争力、适合谁、代价是什么”</h3>
+            <h3>我主要看三个问题：竞争力、适用边界和采用代价</h3>
             <p>研究覆盖中国企业级 CRM/SFA 行业、纷享销客定位演进、关键能力与资源、五个核心业务场景、AI Agent 横向能力和产品体验。所有重要判断尽量对应实测页面、业务流程、客户案例或公开资料，并明确区分事实、厂商自述、分析判断和待验证项。</p>
             <div class="result-grid"><div class="result"><strong>23,584</strong><span>报告正文汉字</span></div><div class="result"><strong>70 页</strong><span>完整研究报告</span></div><div class="result"><strong>48 张</strong><span>产品界面截图</span></div><div class="result"><strong>5+1</strong><span>业务场景与 AI 专题</span></div><div class="result"><strong>V0.1 → V1.6</strong><span>结构、证据与结论持续修正</span></div></div>
             <div class="research-fieldwork">
               <div class="research-fieldwork-mark"><strong>7 DAYS</strong><span>纷享销客 × 销售易深度使用</span></div>
-              <div><h4>连续一周进入两套产品逐项走查，不只看官网和演示材料</h4><p>围绕市场活动、线索、客户、商机、经营分析和 AI Agent，实际查看前台操作、后台配置、对象关系、规则深度与页面体验；将每个判断落实到具体页面、流程或配置项，再回到销售易的同类能力比较差异。</p></div>
+              <div><h4>我花了一周，把纷享销客和销售易逐项跑了一遍</h4><p>围绕市场活动、线索、客户、商机、经营分析和 AI Agent，实际查看前台操作、后台配置、对象关系、规则深度与页面体验；将每个判断落实到具体页面、流程或配置项，再回到销售易的同类能力比较差异。</p></div>
             </div>
           </div>
         </section>
@@ -3856,18 +3852,18 @@
           <div class="detail-label">核心结论</div>
           <div class="detail-body">
             <div class="research-verdict-grid">
-              <article class="research-verdict"><span>01</span><div><h4>它是一套复杂 B2B 经营平台，不是若干 CRM 模块的集合</h4><p>纷享销客不是靠单个模块取胜，而是把<strong class="research-key">统一客户数据、营销到服务的长链路、PaaS 扩展和跨组织连接</strong>组合起来。行业深度取决于能否把制造、快消农牧、高科技等行业的对象、规则和指标固化为标准产品；连接能力则体现为在统一数据与权限下贯通集团、子公司、经销商、终端及 ERP。<strong class="research-emphasis">优势是复杂业务的连续承接；代价是配置、实施和组织学习成本更高。</strong>它更适合<strong class="research-key">业务复杂度足够、且愿意投入数据治理和流程变革的中大型企业</strong>。</p></div></article>
-              <article class="research-verdict"><span>02</span><div><h4>行业壁垒成立与否，要看项目经验能否变成可升级、可复制的产品资产</h4><p><strong class="research-key">标杆客户共创、自有行业团队、直营交付和客户成功</strong>负责把实践带回产品，PaaS 承接必要差异。若这条路径成立，行业积累会缩短售前与交付并降低升级负担；<strong class="research-emphasis">若能力仍依赖顾问个人和大量客开，行业越深，版本治理和交付成本反而越高。</strong>因此不能只看案例数量，还要看<strong class="research-key">标准功能覆盖率、行业版本复用率、实施周期、二开比例和续费扩展</strong>。AI 是否有价值，也要看能否基于正确数据和权限完成分析、确认、写回与追踪。</p></div></article>
-              <article class="research-verdict"><span>03</span><div><h4>与销售易的差异不在“有没有”，而在资源组合和优先场景</h4><p>两者都具备 PaaS、行业方案和 AI Agent。<span class="research-product">纷享销客</span>更强调<strong class="research-key">中立生态连接、跨组织深链路和本地行业流程</strong>，适合多生态并存、直销与分销并行、上下游协同复杂的企业；<span class="research-product is-secondary">销售易</span>更强在<strong class="research-key">腾讯生态、AI 与云基础设施和更轻的产品体验</strong>，在企业微信私域、统一入口和快速推广上更占优。与 Salesforce 相比，<strong class="research-emphasis">纷享销客更贴近国内行业场景和本地交付，但全球伙伴生态及 Agent 的测试、发布、监控能力仍需补强。</strong></p></div></article>
+              <article class="research-verdict"><span>01</span><div><h4>纷享销客的长板，是复杂业务的连续承接</h4><p>纷享销客不是靠单个模块取胜，而是把<strong class="research-key">统一客户数据、营销到服务的长链路、PaaS 扩展和跨组织连接</strong>组合起来。行业深度取决于能否把制造、快消农牧、高科技等行业的对象、规则和指标固化为标准产品；连接能力则体现为在统一数据与权限下贯通集团、子公司、经销商、终端及 ERP。<strong class="research-emphasis">优势是复杂业务的连续承接；代价是配置、实施和组织学习成本更高。</strong>它更适合<strong class="research-key">业务复杂度足够、且愿意投入数据治理和流程变革的中大型企业</strong>。</p></div></article>
+              <article class="research-verdict"><span>02</span><div><h4>项目经验能否变成产品资产，决定行业壁垒</h4><p><strong class="research-key">标杆客户共创、自有行业团队、直营交付和客户成功</strong>负责把实践带回产品，PaaS 承接必要差异。若这条路径成立，行业积累会缩短售前与交付并降低升级负担；<strong class="research-emphasis">若能力仍依赖顾问个人和大量客开，行业越深，版本治理和交付成本反而越高。</strong>因此不能只看案例数量，还要看<strong class="research-key">标准功能覆盖率、行业版本复用率、实施周期、二开比例和续费扩展</strong>。AI 是否有价值，也要看能否基于正确数据和权限完成分析、确认、写回与追踪。</p></div></article>
+              <article class="research-verdict"><span>03</span><div><h4>复杂协同看纷享销客，轻量上线看销售易</h4><p>两者都具备 PaaS、行业方案和 AI Agent。<span class="research-product">纷享销客</span>更强调<strong class="research-key">中立生态连接、跨组织深链路和本地行业流程</strong>，适合多生态并存、直销与分销并行、上下游协同复杂的企业；<span class="research-product is-secondary">销售易</span>更强在<strong class="research-key">腾讯生态、AI 与云基础设施和更轻的产品体验</strong>，在企业微信私域、统一入口和快速推广上更占优。与 Salesforce 相比，<strong class="research-emphasis">纷享销客更贴近国内行业场景和本地交付，但全球伙伴生态及 Agent 的测试、发布、监控能力仍需补强。</strong></p></div></article>
             </div>
-            <div class="research-experience-conclusion"><strong>产品体验结论</strong><p>纷享销客呈现<mark>“能力深、链路长、学习成本高”</mark>的特征：熟练使用后，客户、商机、报价、合同、订单与回款的连续处理效率更高；销售易更强调界面聚焦、工作区完整和快速上手。真正的选择题不是谁的功能更多，而是企业愿意用多大的实施与学习成本，换取多深的业务协同。</p></div>
+            <div class="research-experience-conclusion"><strong>产品体验结论</strong><p>纷享销客呈现<mark>“能力深、链路长、学习成本高”</mark>的特征：熟练使用后，客户、商机、报价、合同、订单与回款的连续处理效率更高；销售易更强调界面聚焦、工作区完整和快速上手。比较两者时，要判断企业愿意用多大的实施与学习成本，换取多深的业务协同。</p></div>
           </div>
         </section>
 
         <section class="detail-section" id="research-framework">
           <div class="detail-label">研究框架</div>
           <div class="detail-body">
-            <h3>从行业问题进入，最后回到产品机制与竞争边界</h3>
+            <h3>报告分六部分：行业、定位、能力、场景、体验和结论</h3>
             <div class="research-map" aria-label="竞品研究路径">
               <div class="research-map-step"><span>01 / MARKET</span><strong>行业与竞争格局</strong></div>
               <div class="research-map-step"><span>02 / POSITION</span><strong>战略定位与演进</strong></div>
@@ -3890,7 +3886,7 @@
         <section class="detail-section" id="research-scenarios">
           <div class="detail-label">场景全景</div>
           <div class="detail-body">
-            <h3>五个核心业务场景与 AI Agent，逐项拆到痛点、方案、差异化与不足</h3>
+            <h3>五个业务场景，加一个 AI Agent 专题</h3>
             <p>场景分析不是罗列功能，而是判断产品有没有把业务问题转成可持续运行的机制，以及这种机制相对销售易、Salesforce 等产品的优势和代价。</p>
             <div class="research-case-stack">
               <article class="research-case">
@@ -3954,7 +3950,7 @@
         <section class="detail-section" id="research-evidence">
           <div class="detail-label">机制实测</div>
           <div class="detail-body">
-            <h3>两处配置界面，对应两条关键产品判断</h3>
+            <h3>我实测了商机阶段和线索自动回收</h3>
             <p>商机阶段配置说明纷享销客能够把销售方法固化为阶段、赢率和任务；线索自动收回说明它不只记录线索，而是通过时效、提醒和回收规则治理资源去向。两者共同体现了它“配置深、链路长”的产品取向，也解释了为什么能力上限更高、后台学习和实施成本也更高。</p>
             <div class="research-shot-grid">
               <figure class="research-shot"><img src="/assets/fxiaoke-opportunity-stage-config.png" alt="纷享销客商机阶段与赢率配置界面" loading="lazy"><figcaption><strong>商机阶段与赢率配置</strong>阶段名称、顺序、赢率和类型均可调整，证明企业可以把自身销售方法沉淀为产品规则；但阶段设计和真实维护质量，也直接决定漏斗与预测是否可信。</figcaption></figure>
@@ -3966,7 +3962,7 @@
         <section class="detail-section" id="research-experience">
           <div class="detail-label">双产品体验</div>
           <div class="detail-body">
-            <h3>一周深度使用后，最明显的差异不是功能多少，而是复杂度放在哪里</h3>
+            <h3>纷享销客能力深、链路长；销售易界面更聚焦、上手更快</h3>
             <div class="research-compare-grid">
               <div class="research-compare"><span>纷享销客</span><strong>能力深、链路长</strong><p>同一平台容纳更多业务对象、视图、配置项和跨单据联动；熟练使用后，客户—商机—报价—合同—订单—回款的连续处理更顺，但导航层级、后台配置和信息密度更高。</p></div>
               <div class="research-compare"><span>销售易</span><strong>界面聚焦、上手更快</strong><p>顶部导航和全屏工作区让单项任务更聚焦，视觉体系更统一；腾讯云、企业微信和相关企业服务生态在私域、统一入口与推广效率上更有优势。</p></div>
@@ -3978,7 +3974,7 @@
         <section class="detail-section" id="research-iteration">
           <div class="detail-label">迭代过程</div>
           <div class="detail-body">
-            <h3>从章节目录走到可复核的产品判断</h3>
+            <h3>这份报告从 V0.1 改到 V1.6</h3>
             <div class="research-timeline">
               <div class="research-timeline-item"><span>V0.1</span><strong>建立研究骨架</strong><p>明确行业、定位、资源、场景与结论的主线。</p></div>
               <div class="research-timeline-item"><span>V1.1—V1.3</span><strong>统一场景结构</strong><p>将痛点、功能、AI、差异、案例和不足统一到同一拆解方式。</p></div>
@@ -3988,12 +3984,14 @@
           </div>
         </section>
 
-        <section class="detail-section" id="research-summary">
-          <div class="detail-label">公开摘要</div>
+        <section class="detail-section" id="research-report">
+          <div class="detail-label">完整报告</div>
           <div class="detail-body">
-            <div class="research-download">
-              <div><h3>阅读扩展版公开摘要</h3><p>包含最终总结、双产品深度使用说明、五个完整业务场景、AI Agent 专题、产品体验对比与关键机制实测。</p><div class="research-full-report"><strong>想查看 2 万字完整版？</strong><span>可添加微信 Stong18292879652，备注“竞品报告”。</span><button type="button" data-copy="Stong18292879652">复制微信号</button></div><div class="research-disclaimer">本材料为个人独立研究展示，与相关厂商无隶属或背书关系；完整原始报告用于面试沟通时展示。</div></div>
-              <div class="research-download-actions"><a class="button primary" href="/downloads/fxiaoke-crm-research-public-summary.pdf" target="_blank" rel="noopener">打开 PDF <span class="arrow">↗</span></a><a class="button dark" href="/downloads/fxiaoke-crm-research-public-summary.pdf" download>下载摘要 <span class="arrow">↓</span></a></div>
+            <div class="research-report-contact">
+              <small>FULL REPORT · V1.6</small>
+              <h3>加微信，拿 2 万字完整报告</h3>
+              <p>完整版共 70 页、23,584 字。微信号 Stong18292879652，备注“竞品报告”。</p>
+              <button class="button primary" type="button" data-copy="Stong18292879652">复制微信号 <span class="arrow">→</span></button>
             </div>
           </div>
         </section>
