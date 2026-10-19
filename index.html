@@ -1690,6 +1690,75 @@
     }
     .work-shell:hover .work-visual-label { border-color: rgba(221,185,121,.35); background: rgba(20,18,15,.8); }
 
+    .research-work-shell {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      min-height: 470px;
+      margin-top: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(221,185,121,.2);
+      border-radius: var(--radius-xl);
+      color: var(--ink);
+      background: #eee7dc;
+      box-shadow: 0 34px 90px rgba(0,0,0,.18);
+      isolation: isolate;
+    }
+    .research-work-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 22% 22%, rgba(200,146,77,.13), transparent 32%), linear-gradient(120deg, transparent 58%, rgba(200,146,77,.08));
+    }
+    .research-work-copy { position: relative; z-index: 2; padding: clamp(36px, 5vw, 64px); }
+    .research-work-copy .status { border-color: rgba(140,96,41,.22); color: #8c6029; background: rgba(255,255,255,.28); }
+    .research-work-copy h3 { max-width: 620px; margin-top: 25px; font-size: clamp(34px, 3.8vw, 52px); font-weight: 650; line-height: 1.18; letter-spacing: -.045em; }
+    .research-work-copy > p { max-width: 670px; margin-top: 20px; color: var(--ink-soft); font-size: 14px; line-height: 1.9; }
+    .research-metrics { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 28px; }
+    .research-metric { min-width: 0; border-top: 1px solid rgba(42,34,27,.13); padding-top: 12px; }
+    .research-metric strong { display: block; color: #8c6029; font-family: var(--font-display); font-size: 20px; font-style: italic; line-height: 1; }
+    .research-metric span { display: block; margin-top: 7px; color: var(--muted); font-size: 8px; line-height: 1.45; }
+    .research-work-shell .work-actions .button.primary { color: var(--white); background: var(--black-2); }
+    .research-work-shell .work-actions .button.dark { border-color: rgba(42,34,27,.18); color: var(--ink); background: transparent; }
+    .research-work-shell .work-actions .button.dark:hover { border-color: rgba(140,96,41,.38); background: rgba(255,255,255,.42); }
+    .research-dossier {
+      position: relative;
+      z-index: 1;
+      min-height: 470px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: var(--white);
+      background: #191612;
+    }
+    .research-dossier::before,
+    .research-dossier::after { content: ""; position: absolute; border: 1px solid rgba(221,185,121,.15); border-radius: 50%; }
+    .research-dossier::before { width: 430px; height: 430px; right: -145px; top: -95px; }
+    .research-dossier::after { width: 280px; height: 280px; right: -62px; top: -25px; }
+    .dossier-sheet {
+      position: relative;
+      z-index: 2;
+      width: min(72%, 350px);
+      aspect-ratio: .73;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(221,185,121,.28);
+      padding: 34px 30px;
+      background: linear-gradient(160deg, #28221c, #171411 72%);
+      box-shadow: 0 30px 80px rgba(0,0,0,.38);
+      transform: rotate(3deg);
+      transition: transform .5s cubic-bezier(.2,.8,.2,1), border-color .35s ease;
+    }
+    .research-work-shell:hover .dossier-sheet { border-color: rgba(221,185,121,.52); transform: rotate(0deg) translateY(-4px); }
+    .dossier-sheet small { color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .2em; }
+    .dossier-sheet h4 { max-width: 230px; font-size: clamp(28px, 2.8vw, 40px); line-height: 1.14; letter-spacing: -.04em; }
+    .dossier-sheet p { color: rgba(255,250,241,.48); font-size: 10px; line-height: 1.75; }
+    .dossier-page-no { display: flex; align-items: flex-end; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.1); padding-top: 18px; }
+    .dossier-page-no strong { color: var(--gold-light); font-family: var(--font-display); font-size: 52px; font-style: italic; line-height: .8; }
+    .dossier-page-no span { color: rgba(255,250,241,.32); font-size: 8px; letter-spacing: .14em; }
+
     #thinking .section-head { margin-bottom: 28px; }
     .thought-intro {
       max-width: none;
@@ -2074,6 +2143,53 @@
     .result span { display: block; margin-top: 6px; color: var(--ink-soft); font-size: 10px; line-height: 1.55; }
     .detail-note { margin-top: 22px; border-left: 2px solid var(--gold); padding: 15px 18px; color: var(--ink-soft); background: #eee6da; font-size: 12px; line-height: 1.8; }
     .detail-note strong { color: var(--ink); }
+    .research-detail .detail-hero { position: relative; overflow: hidden; background: radial-gradient(circle at 78% 24%, rgba(200,146,77,.18), transparent 25%), #15120f; }
+    .research-detail .detail-hero::after { content: "RESEARCH / CRM / EVIDENCE"; position: absolute; right: -22px; bottom: -12px; color: rgba(221,185,121,.045); font-size: clamp(52px, 8vw, 108px); font-weight: 800; letter-spacing: -.05em; white-space: nowrap; pointer-events: none; }
+    .research-detail .detail-hero-inner { position: relative; z-index: 1; }
+    .research-detail .detail-content { width: min(1080px, calc(100vw - 96px)); }
+    .research-verdict-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 23px; }
+    .research-verdict { min-height: 228px; display: flex; flex-direction: column; border: 1px solid var(--line-light); border-radius: 16px; padding: 22px; background: rgba(255,255,255,.38); }
+    .research-verdict span { color: var(--gold); font-family: var(--font-display); font-size: 27px; font-style: italic; }
+    .research-verdict h4 { margin-top: 32px; font-size: 17px; }
+    .research-verdict p { margin-top: 11px; font-size: 12px; line-height: 1.75; }
+    .research-map { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 24px; }
+    .research-map-step { position: relative; min-height: 112px; border: 1px solid var(--line-light); border-radius: 14px; padding: 17px 14px; background: #eee7dc; }
+    .research-map-step:not(:last-child)::after { content: "→"; position: absolute; z-index: 2; top: 45%; right: -9px; color: var(--gold); font-size: 13px; }
+    .research-map-step span { color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+    .research-map-step strong { display: block; margin-top: 17px; font-size: 12px; line-height: 1.55; }
+    .research-scope-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+    .research-scope-item { border-top: 1px solid var(--line-light); padding: 14px 4px 4px; color: var(--ink-soft); font-size: 12px; line-height: 1.65; }
+    .research-scope-item strong { display: block; margin-bottom: 5px; color: var(--ink); font-size: 13px; }
+    .research-case-stack { display: grid; gap: 14px; margin-top: 23px; }
+    .research-case { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 25px; border: 1px solid var(--line-light); border-radius: 17px; padding: 24px; background: rgba(255,255,255,.34); }
+    .research-case-index { color: rgba(140,96,41,.32); font-family: var(--font-display); font-size: 50px; font-style: italic; line-height: 1; }
+    .research-case h4 { margin: 0; font-size: 18px; }
+    .research-case p { margin-top: 9px; font-size: 12px; line-height: 1.75; }
+    .research-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 16px; }
+    .research-flow span { position: relative; min-height: 64px; display: grid; place-items: center; border-radius: 11px; padding: 9px; color: #6f4b24; background: #eadbc5; font-size: 10px; font-weight: 700; text-align: center; }
+    .research-flow span:not(:last-child)::after { content: "→"; position: absolute; right: -9px; color: var(--gold); }
+    .research-shot-grid { display: grid; grid-template-columns: 1fr .72fr; gap: 14px; margin-top: 22px; align-items: stretch; }
+    .research-shot { overflow: hidden; border: 1px solid var(--line-light); border-radius: 16px; background: #fff; }
+    .research-shot img { width: 100%; height: 270px; object-fit: cover; object-position: center; background: #f5f6f8; }
+    .research-shot.is-rule img { object-fit: contain; padding: 22px; }
+    .research-shot figcaption { border-top: 1px solid var(--line-light); padding: 14px 16px 16px; color: var(--ink-soft); font-size: 10px; line-height: 1.65; }
+    .research-shot figcaption strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: 11px; }
+    .research-evidence-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+    .research-evidence { min-height: 150px; border-radius: 14px; padding: 19px; color: var(--white); background: #211e19; }
+    .research-evidence span { color: var(--gold-light); font-size: 8px; font-weight: 800; letter-spacing: .15em; }
+    .research-evidence strong { display: block; margin-top: 20px; font-size: 14px; }
+    .research-evidence p { margin-top: 8px; color: rgba(255,250,241,.48); font-size: 10px; line-height: 1.65; }
+    .research-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 23px; }
+    .research-timeline-item { position: relative; border-top: 1px solid rgba(140,96,41,.28); padding: 24px 17px 0 0; }
+    .research-timeline-item::before { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 5px rgba(200,146,77,.12); }
+    .research-timeline-item span { color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+    .research-timeline-item strong { display: block; margin-top: 9px; font-size: 13px; }
+    .research-timeline-item p { margin-top: 7px; font-size: 10px; line-height: 1.65; }
+    .research-download { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; border: 1px solid rgba(221,185,121,.25); border-radius: 18px; padding: 28px; color: var(--white); background: #191612; }
+    .research-download h3 { color: var(--white); }
+    .research-download p { color: rgba(255,250,241,.52); font-size: 12px; }
+    .research-download-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+    .research-disclaimer { margin-top: 15px; color: rgba(255,250,241,.34); font-size: 9px; line-height: 1.7; }
     .skill-detail .detail-hero { position: relative; overflow: hidden; background: #14120f; }
     .skill-detail .detail-hero::after {
       content: "WORK / SYSTEM / DELIVERY";
@@ -2423,6 +2539,11 @@
       .method-skills-inner { width: calc(100vw - 40px); }
       .method-skills-heading { grid-template-columns: 145px minmax(0, 1fr) auto; }
       .method-skills-heading p { display: none; }
+      .research-work-shell { grid-template-columns: 1fr; }
+      .research-dossier { min-height: 430px; }
+      .research-map { grid-template-columns: repeat(3, 1fr); }
+      .research-map-step:nth-child(3)::after { display: none; }
+      .research-shot-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 760px) {
@@ -2579,6 +2700,12 @@
       .work-visual::after { background: linear-gradient(0deg, #211d19, transparent 38%); }
       .work-flow-rail { display: none; }
       .work-visual-label { right: 18px; bottom: 18px; left: 18px; max-width: none; }
+      .research-work-copy { padding: 32px 24px; }
+      .research-work-copy h3 { font-size: 34px; }
+      .research-metrics { grid-template-columns: repeat(2, 1fr); gap: 14px 10px; }
+      .research-metric:last-child { grid-column: 1 / -1; }
+      .research-dossier { min-height: 390px; }
+      .dossier-sheet { width: min(72%, 286px); padding: 28px 25px; }
       .launch-mark { width: 96px; height: 96px; }
       #thinking .section-head { margin-bottom: 22px; }
       .thought-intro { grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; padding: 18px 0; font-size: 13px; }
@@ -2611,6 +2738,24 @@
       .detail-content { width: calc(100vw - 32px); padding: 56px 0 80px; }
       .detail-section { grid-template-columns: 1fr; gap: 15px; }
       .result-grid { grid-template-columns: 1fr; }
+      .research-detail .detail-content { width: calc(100vw - 32px); }
+      .research-verdict-grid,
+      .research-scope-grid,
+      .research-evidence-grid,
+      .research-timeline { grid-template-columns: 1fr; }
+      .research-verdict { min-height: 0; }
+      .research-verdict h4 { margin-top: 20px; }
+      .research-map { grid-template-columns: 1fr 1fr; }
+      .research-map-step:nth-child(3)::after { display: block; }
+      .research-map-step:nth-child(even)::after { display: none; }
+      .research-case { grid-template-columns: 1fr; gap: 12px; padding: 20px; }
+      .research-case-index { font-size: 36px; }
+      .research-flow { grid-template-columns: 1fr; }
+      .research-flow span:not(:last-child)::after { right: 50%; bottom: -13px; transform: translateX(50%) rotate(90deg); }
+      .research-shot img { height: auto; min-height: 190px; }
+      .research-timeline-item { min-height: 120px; padding-left: 18px; border-top: 0; border-left: 1px solid rgba(140,96,41,.28); }
+      .research-timeline-item::before { top: 0; left: -5px; }
+      .research-download { grid-template-columns: 1fr; padding: 24px; }
       .skill-detail .detail-content { width: calc(100vw - 32px); }
       .skill-use-list,
       .skill-io-grid,
@@ -3121,10 +3266,10 @@
     <section class="section dark" id="work">
       <div class="section-inner">
         <div class="section-head reveal">
-          <div class="section-no">04 / VIBECODING WORK</div>
+          <div class="section-no">04 / SELECTED WORK</div>
           <div class="section-title">
-            <h2>我喜欢追求细节和规则的完善，也喜欢把自己的想法直接做出来。</h2>
-            <p>代表作品不只是界面展示，也记录从业务建模、需求体系、交互验证到 AI 协同实现的完整过程。</p>
+            <h2>既把复杂产品做出来，也把行业与竞品研究透。</h2>
+            <p>这里保留两类能力证据：一类是从业务建模到 AI 协同实现的产品实践，另一类是从行业、战略、场景到体验证据的系统研究。</p>
           </div>
         </div>
         <article class="work-shell reveal" data-work-stage>
@@ -3147,6 +3292,32 @@
             <div class="work-scan-line" aria-hidden="true"></div>
             <div class="work-flow-rail" aria-hidden="true"><span>获客</span><span>线索</span><span>分配</span><span>跟进</span><span>报备</span><span>审核</span><span>商机</span><span>转化</span></div>
             <div class="work-visual-label">展会扫码 → 线索 → 地区分配 → 跟进 → 项目报备 → 审核 → 商机 → 合作客户</div>
+          </div>
+        </article>
+        <article class="research-work-shell reveal" aria-labelledby="fxiaoke-research-title">
+          <div class="research-work-copy">
+            <span class="status">个人主导 · 企业级 CRM 研究</span>
+            <h3 id="fxiaoke-research-title">纷享销客深度竞品研究</h3>
+            <p>从行业格局、战略定位与资源能力，到营销、线索、客户、商机、经营分析与 AI Agent，完成一次基于公开资料与产品实测的系统拆解。</p>
+            <div class="research-metrics" aria-label="研究规模">
+              <div class="research-metric"><strong>23,000+</strong><span>汉字</span></div>
+              <div class="research-metric"><strong>70</strong><span>页报告</span></div>
+              <div class="research-metric"><strong>48</strong><span>张产品截图</span></div>
+              <div class="research-metric"><strong>5+1</strong><span>业务场景与 AI 专题</span></div>
+              <div class="research-metric"><strong>V1.6</strong><span>持续迭代版本</span></div>
+            </div>
+            <div class="work-actions">
+              <button class="button primary" type="button" data-detail="work-fxiaoke-research" data-magnetic>查看研究案例 <span class="arrow">→</span></button>
+              <a class="button dark" href="/downloads/fxiaoke-crm-research-public-summary.pdf" target="_blank" rel="noopener" data-magnetic>预览公开版 <span class="arrow">↗</span></a>
+            </div>
+          </div>
+          <div class="research-dossier" aria-hidden="true">
+            <div class="dossier-sheet">
+              <small>RESEARCH DOSSIER · CRM</small>
+              <h4>纷享销客<br>竞品分析</h4>
+              <p>行业格局 / 战略定位 / 关键能力<br>五个业务场景 / AI Agent / 产品体验</p>
+              <div class="dossier-page-no"><strong>70</strong><span>PAGES · V1.6</span></div>
+            </div>
           </div>
         </article>
       </div>
@@ -3335,6 +3506,7 @@
         <section class="detail-section"><div class="detail-label">核心设计</div><div class="detail-body"><h4>01｜可配置拜访</h4><p>将 8 个拜访步骤配置到 4 类业务场景中，覆盖铺货、陈列、活动与促销等终端工作，让标准动作可检查、差异流程可组合。</p><h4>02｜真实执行验证</h4><p>结合 LBS 与 AI 图像识别验证活动现场，降低材料作假风险；通过“定位 + 终端名称 + OCR”进行终端验重，控制基础数据唯一性。</p><h4>03｜过程激励</h4><p>抽象 13 类系统动作、3 种积分指标及自定义公式，把外勤过程中的有效动作转化为可度量、可配置的激励规则。</p></div></section>
         <section class="detail-section"><div class="detail-label">结果证据</div><div class="detail-body"><div class="result-grid"><div class="result"><strong>行业首款</strong><span>面向酒类行业的 SFA 标准产品</span></div><div class="result"><strong>8 家</strong><span>参与客户方案与蓝图设计</span></div><div class="result"><strong>8 × 4</strong><span>拜访步骤 × 业务场景</span></div><div class="result"><strong>13 类</strong><span>可触发的系统动作</span></div><div class="result"><strong>200—300 万</strong><span>单项目金额</span></div></div></div></section>
         <section class="detail-section"><div class="detail-label">产品判断</div><div class="detail-body"><h3>管理外勤不是“盯住人”，而是让关键动作可验证</h3><p>标准化应稳定终端、拜访、活动和激励等核心对象；客户差异则交给步骤、指标与公式配置。这样既能保证管理口径，又不会牺牲一线真实场景。</p></div></section>
+        <section class="detail-section"><div class="detail-label">关联研究</div><div class="detail-body"><h3>从一段项目经验，继续追问企业级 CRM 如何形成竞争力</h3><p>在 SFA 标准产品实践之外，我进一步以纷享销客为对象，研究行业深度、PaaS、跨组织连接、五个核心业务场景与 AI Agent 的组合方式。</p><button class="text-link" type="button" data-detail="work-fxiaoke-research">查看纷享销客深度竞品研究 <span>→</span></button></div></section>
       </div>
     </article>
 
@@ -3592,6 +3764,122 @@
         <section class="detail-section"><div class="detail-label">业务链路</div><div class="detail-body"><p>展会扫码 → 线索 → 地区分配 → 业务经理跟进 → 项目报备 → 审核 → 商机 → 合作客户。</p></div></section>
         <section class="detail-section"><div class="detail-label">我的工作</div><div class="detail-body"><ul><li>产品规划、业务对象与规则梳理。</li><li>需求池、PRD、低保真和交互 Demo。</li><li>Ontology 与 Action 建模、权限与人在回路设计。</li><li>AI 协同开发、页面巡检和回归验收。</li></ul></div></section>
         <section class="detail-section"><div class="detail-label">作品意义</div><div class="detail-body"><h3>让产品判断不只停留在文档里</h3><p>当产品经理能够把需求、页面和交互做成可运行版本，业务反馈会更具体，研发交接也会从抽象讨论转向围绕真实状态共同判断。</p></div></section>
+      </div>
+    </article>
+    <article class="detail-page research-detail" data-page="work-fxiaoke-research">
+      <header class="detail-hero">
+        <div class="detail-hero-inner">
+          <div class="eyebrow">PERSONAL RESEARCH · ENTERPRISE CRM</div>
+          <h2>纷享销客深度竞品研究</h2>
+          <p class="detail-lead">这不是一份功能清单，而是一次围绕纷享销客竞争力、适配边界和产品机制展开的企业级 CRM 研究：从宏观行业、战略与资源，深入到真实业务场景、界面体验和 AI Agent 的执行闭环。</p>
+          <div class="detail-meta"><div><span>ROLE</span><strong>个人主导研究与撰写</strong></div><div><span>SCOPE</span><strong>行业 / 战略 / 场景 / 体验</strong></div><div><span>EVIDENCE</span><strong>公开资料 / 产品实测</strong></div><div><span>OUTPUT</span><strong>70 页 / 2.3 万+汉字</strong></div></div>
+        </div>
+      </header>
+      <div class="detail-content">
+        <section class="detail-section">
+          <div class="detail-label">研究概览</div>
+          <div class="detail-body">
+            <h3>把“它有什么功能”推进到“它为什么有竞争力、适合谁、代价是什么”</h3>
+            <p>研究覆盖中国企业级 CRM/SFA 行业、纷享销客定位演进、关键能力与资源、五个核心业务场景、AI Agent 横向能力和产品体验。所有重要判断尽量对应实测页面、业务流程、客户案例或公开资料，并明确区分事实、厂商自述、分析判断和待验证项。</p>
+            <div class="result-grid"><div class="result"><strong>23,584</strong><span>报告正文汉字</span></div><div class="result"><strong>70 页</strong><span>完整研究报告</span></div><div class="result"><strong>48 张</strong><span>产品界面截图</span></div><div class="result"><strong>5+1</strong><span>业务场景与 AI 专题</span></div><div class="result"><strong>V0.1 → V1.6</strong><span>结构、证据与结论持续修正</span></div></div>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <div class="detail-label">核心结论</div>
+          <div class="detail-body">
+            <h3>先给判断，再展开证据</h3>
+            <div class="research-verdict-grid">
+              <article class="research-verdict"><span>01</span><h4>竞争力来自能力组合</h4><p>真正形成门槛的不是某个单点模块，而是行业对象与规则、PaaS 扩展、跨组织连接和营销售服长链路被放进同一套经营平台。</p></article>
+              <article class="research-verdict"><span>02</span><h4>业务越复杂，价值越明显</h4><p>它更适合多组织、多渠道、多系统并存，且愿意投入数据治理和流程变革的中大型企业；配置、实施和学习成本也随复杂度上升。</p></article>
+              <article class="research-verdict"><span>03</span><h4>AI 差异在业务闭环</h4><p>AI 的关键不在底层模型，而在行业知识、权限和业务动作能否完成分析、人工确认、结果写回与过程追踪。</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <div class="detail-label">研究框架</div>
+          <div class="detail-body">
+            <h3>从行业问题进入，最后回到采购与产品判断</h3>
+            <div class="research-map" aria-label="竞品研究路径">
+              <div class="research-map-step"><span>01 / MARKET</span><strong>行业与竞争格局</strong></div>
+              <div class="research-map-step"><span>02 / POSITION</span><strong>战略定位与演进</strong></div>
+              <div class="research-map-step"><span>03 / CAPABILITY</span><strong>关键能力与资源</strong></div>
+              <div class="research-map-step"><span>04 / SCENARIO</span><strong>核心业务场景</strong></div>
+              <div class="research-map-step"><span>05 / EXPERIENCE</span><strong>产品机制与体验</strong></div>
+              <div class="research-map-step"><span>06 / JUDGMENT</span><strong>适配边界与结论</strong></div>
+            </div>
+            <div class="research-scope-grid">
+              <div class="research-scope-item"><strong>市场活动与营销获客</strong>活动申请、执行、线索归因与 ROI。</div>
+              <div class="research-scope-item"><strong>线索流转与转化</strong>查重、分池、分配、领取、回收与资格判断。</div>
+              <div class="research-scope-item"><strong>客户经营与管控</strong>客户资产、归属、分级、健康度与持续经营。</div>
+              <div class="research-scope-item"><strong>商机推进与赢单</strong>阶段任务、决策链、报价方案与销售协同。</div>
+              <div class="research-scope-item"><strong>经营分析</strong>漏斗、预测、过程指标与经营洞察。</div>
+              <div class="research-scope-item"><strong>AI Agent</strong>行业知识、智能体、人在回路与业务写回。</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <div class="detail-label">场景切片</div>
+          <div class="detail-body">
+            <h3>用三段代表场景，展示从流程拆解到产品判断的过程</h3>
+            <div class="research-case-stack">
+              <article class="research-case"><div class="research-case-index">01</div><div><h4>线索流转：不是“建一条线索”，而是治理资源去向</h4><p>线索池统一承接多渠道线索，通过负责人保留、指定或循环分配、领取上限、跟进 SLA、超时提醒与自动回收，把线索从进入 CRM 到退出线索池变成可追踪闭环。</p><div class="research-flow"><span>线索接入与查重</span><span>分池与分配</span><span>跟进与时效</span><span>超时回收</span><span>转客户 / 商机</span></div></div></article>
+              <article class="research-case"><div class="research-case-index">02</div><div><h4>商机推进：把优秀销售方法沉淀为阶段任务</h4><p>商机阶段、赢率、必做任务和退出条件共同构成可执行销售方法；报价、技术方案、特价、合同和订单回到同一上下文，减少跨系统查找与交接遗漏。</p><div class="research-flow"><span>商机报备 10%</span><span>需求确认 30%</span><span>方案设计 60%</span><span>投标报价 80%</span><span>签约 / 输单</span></div></div></article>
+              <article class="research-case"><div class="research-case-index">03</div><div><h4>AI Agent：从生成内容走向辅助判断与执行</h4><p>客户和商机智能体只有在能够读取正确数据、解释判断依据、接受人工确认，并把结果写回客户、商机或任务时，才真正进入业务流程；否则仍只是孤立的问答功能。</p><div class="research-flow"><span>读取业务上下文</span><span>诊断与评分</span><span>生成行动建议</span><span>人工确认</span><span>写回与追踪</span></div></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <div class="detail-label">界面证据</div>
+          <div class="detail-body">
+            <h3>展示规则与机制，不暴露客户和个人数据</h3>
+            <p>公开版只保留与产品判断直接相关、且不包含客户名称、账号、人员或租户信息的界面。完整报告中的其他截图仅用于研究取证，不进入公开网站。</p>
+            <div class="research-shot-grid">
+              <figure class="research-shot"><img src="/assets/fxiaoke-opportunity-stage-config.png" alt="纷享销客商机阶段与赢率配置界面" loading="lazy"><figcaption><strong>商机阶段与赢率配置</strong>阶段名称、顺序、赢率与阶段类型共同构成销售过程治理的基础。</figcaption></figure>
+              <figure class="research-shot is-rule"><img src="/assets/fxiaoke-lead-reclaim-rule.png" alt="纷享销客线索池自动收回规则配置界面" loading="lazy"><figcaption><strong>线索自动收回规则</strong>把未跟进、未转化和提醒机制变成可配置运营规则。</figcaption></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <div class="detail-label">证据边界</div>
+          <div class="detail-body">
+            <h3>结论可信，比结论看起来完整更重要</h3>
+            <div class="research-evidence-grid">
+              <div class="research-evidence"><span>TESTED</span><strong>产品实测</strong><p>实际页面、操作路径和任务结果，作为产品机制的直接证据。</p></div>
+              <div class="research-evidence"><span>PUBLIC</span><strong>公开资料</strong><p>官网、帮助中心、发布会、行业报告和客户案例，保留来源与日期。</p></div>
+              <div class="research-evidence"><span>INFERENCE</span><strong>分析判断</strong><p>基于多项事实形成的推断，明确说明比较对象、场景与适用范围。</p></div>
+              <div class="research-evidence"><span>TO VERIFY</span><strong>待进一步验证</strong><p>缺少实测、统一口径或长期结果的数据，不提前写成确定事实。</p></div>
+            </div>
+            <div class="detail-note"><strong>研究声明：</strong>本页面为个人独立研究展示，与纷享销客官方无隶属或背书关系。产品名称和商标归其权利人所有，界面仅用于有限的产品分析说明。</div>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <div class="detail-label">迭代过程</div>
+          <div class="detail-body">
+            <h3>从章节目录走到可复核的产品判断</h3>
+            <div class="research-timeline">
+              <div class="research-timeline-item"><span>V0.1</span><strong>建立研究骨架</strong><p>明确行业、定位、资源、场景与结论的主线。</p></div>
+              <div class="research-timeline-item"><span>V1.1—V1.3</span><strong>统一场景结构</strong><p>将痛点、功能、AI、差异、案例和不足统一到同一拆解方式。</p></div>
+              <div class="research-timeline-item"><span>V1.4—V1.5</span><strong>补足实测证据</strong><p>围绕商机、经营分析和体验问题增加流程、规则与页面验证。</p></div>
+              <div class="research-timeline-item"><span>V1.6</span><strong>收敛竞争判断</strong><p>补充行业、资源、适配边界与证据可信度，形成综合结论。</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <div class="detail-label">公开摘要</div>
+          <div class="detail-body">
+            <div class="research-download">
+              <div><h3>阅读 10 页公开摘要版</h3><p>保留研究框架、三个核心结论、代表场景与证据方法；客户、人员、租户和内部项目背景均已移除。</p><div class="research-disclaimer">完整研究报告用于面试沟通时展示，不提供未经脱敏的原始文档公开下载。</div></div>
+              <div class="research-download-actions"><a class="button primary" href="/downloads/fxiaoke-crm-research-public-summary.pdf" target="_blank" rel="noopener">打开 PDF <span class="arrow">↗</span></a><a class="button dark" href="/downloads/fxiaoke-crm-research-public-summary.pdf" download>下载摘要 <span class="arrow">↓</span></a></div>
+            </div>
+          </div>
+        </section>
       </div>
     </article>
   </div>
